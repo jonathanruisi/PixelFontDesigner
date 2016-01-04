@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<CharacterSets>
+  <CharacterSet SetName="ASCII (Standard)">
+    <Character Number="32" Symbol=" " Description="Space" />
+    <Character Number="33" Symbol="!" Description="Exclamation Mark" />
+    <Character Number="34" Symbol="&quot;" Description="Double Quotation Mark" />
+    <Character Number="35" Symbol="#" Description="Number" />
+    <Character Number="36" Symbol="$" Description="Dollar" />
+    <Character Number="37" Symbol="%" Description="Percent" />
+    <Character Number="38" Symbol="&amp;" Description="Ampersand" />
+    <Character Number="39" Symbol="'" Description="Single Quote" />
+    <Character Number="40" Symbol="(" Description="Open Parenthesis" />
+    <Character Number="41" Symbol=")" Description="Closed Parenthesis" />
+    <Character Number="42" Symbol="*" Description="Asterisk" />
+    <Character Number="43" Symbol="+" Description="Plus" />
+    <Character Number="44" Symbol="," Description="Comma" />
+    <Character Number="45" Symbol="-" Description="Hyphen (Minus)" />
+    <Character Number="46" Symbol="." Description="Period" />
+    <Character Number="47" Symbol="/" Description="Forward Slash (Divide)" />
+    <Character Number="48" Symbol="0" Description="Zero" />
+    <Character Number="49" Symbol="1" Description="One" />
+    <Character Number="50" Symbol="2" Description="Two" />
+    <Character Number="51" Symbol="3" Description="Three" />
+    <Character Number="52" Symbol="4" Description="Four" />
+    <Character Number="53" Symbol="5" Description="Five" />
+    <Character Number="54" Symbol="6" Description="Six" />
+    <Character Number="55" Symbol="7" Description="Seven" />
+    <Character Number="56" Symbol="8" Description="Eight" />
+    <Character Number="57" Symbol="9" Description="Nine" />
+    <Character Number="58" Symbol=":" Description="Colon" />
+    <Character Number="59" Symbol=";" Description="Semicolon" />
+    <Character Number="60" Symbol="&lt;" Description="Open Angle Bracket (Less Than)" />
+    <Character Number="61" Symbol="=" Description="Equals" />
+    <Character Number="62" Symbol="&gt;" Description="Closed Angle Bracket (Greater Than)" />
+    <Character Number="63" Symbol="?" Description="Question Mark" />
+    <Character Number="64" Symbol="@" Description="At" />
+    <Character Number="65" Symbol="A" Description="Uppercase A" />
+    <Character Number="66" Symbol="B" Description="Uppercase B" />
+    <Character Number="67" Symbol="C" Description="Uppercase C" />
+    <Character Number="68" Symbol="D" Description="Uppercase D" />
+    <Character Number="69" Symbol="E" Description="Uppercase E" />
+    <Character Number="70" Symbol="F" Description="Uppercase F" />
+    <Character Number="71" Symbol="G" Description="Uppercase G" />
+    <Character Number="72" Symbol="H" Description="Uppercase H" />
+    <Character Number="73" Symbol="I" Description="Uppercase I" />
+    <Character Number="74" Symbol="J" Description="Uppercase J" />
+    <Character Number="75" Symbol="K" Description="Uppercase K" />
+    <Character Number="76" Symbol="L" Description="Uppercase L" />
+    <Character Number="77" Symbol="M" Description="Uppercase M" />
+    <Character Number="78" Symbol="N" Description="Uppercase N" />
+    <Character Number="79" Symbol="O" Description="Uppercase O" />
+    <Character Number="80" Symbol="P" Description="Uppercase P" />
+    <Character Number="81" Symbol="Q" Description="Uppercase Q" />
+    <Character Number="82" Symbol="R" Description="Uppercase R" />
+    <Character Number="83" Symbol="S" Description="Uppercase S" />
+    <Character Number="84" Symbol="T" Description="Uppercase T" />
+    <Character Number="85" Symbol="U" Description="Uppercase U" />
+    <Character Number="86" Symbol="V" Description="Uppercase V" />
+    <Character Number="87" Symbol="W" Description="Uppercase W" />
+    <Character Number="88" Symbol="X" Description="Uppercase X" />
+    <Character Number="89" Symbol="Y" Description="Uppercase Y" />
+    <Character Number="90" Symbol="Z" Description="Uppercase Z" />
+    <Character Number="91" Symbol="[" Description="Open Bracket" />
+    <Character Number="92" Symbol="\" Description="Backslash" />
+    <Character Number="93" Symbol="]" Description="Closed Bracket" />
+    <Character Number="94" Symbol="^" Description="Caret" />
+    <Character Number="95" Symbol="_" Description="Underscore" />
+    <Character Number="96" Symbol="`" Description="Grave" />
+    <Character Number="97" Symbol="a" Description="Lowercase A" />
+    <Character Number="98" Symbol="b" Description="Lowercase B" />
+    <Character Number="99" Symbol="c" Description="Lowercase C" />
+    <Character Number="100" Symbol="d" Description="Lowercase D" />
+    <Character Number="101" Symbol="e" Description="Lowercase E" />
+    <Character Number="102" Symbol="f" Description="Lowercase F" />
+    <Character Number="103" Symbol="g" Description="Lowercase G" />
+    <Character Number="104" Symbol="h" Description="Lowercase H" />
+    <Character Number="105" Symbol="i" Description="Lowercase I" />
+    <Character Number="106" Symbol="j" Description="Lowercase J" />
+    <Character Number="107" Symbol="k" Description="Lowercase K" />
+    <Character Number="108" Symbol="l" Description="Lowercase L" />
+    <Character Number="109" Symbol="m" Description="Lowercase M" />
+    <Character Number="110" Symbol="n" Description="Lowercase N" />
+    <Character Number="111" Symbol="o" Description="Lowercase O" />
+    <Character Number="112" Symbol="p" Description="Lowercase P" />
+    <Character Number="113" Symbol="q" Description="Lowercase Q" />
+    <Character Number="114" Symbol="r" Description="Lowercase R" />
+    <Character Number="115" Symbol="s" Description="Lowercase S" />
+    <Character Number="116" Symbol="t" Description="Lowercase T" />
+    <Character Number="117" Symbol="u" Description="Lowercase U" />
+    <Character Number="118" Symbol="v" Description="Lowercase V" />
+    <Character Number="119" Symbol="w" Description="Lowercase W" />
+    <Character Number="120" Symbol="x" Description="Lowercase X" />
+    <Character Number="121" Symbol="y" Description="Lowercase Y" />
+    <Character Number="122" Symbol="z" Description="Lowercase Z" />
+    <Character Number="123" Symbol="{" Description="Open Curly Brace" />
+    <Character Number="124" Symbol="|" Description="Vertical Bar" />
+    <Character Number="125" Symbol="}" Description="Closed Curly Brace" />
+    <Character Number="126" Symbol="~" Description="Tilde" />
+  </CharacterSet>
+  <CharacterSet SetName="ASCII (Extended)">
+    <Character Number="128" Symbol="€" Description="Euro sign" />
+    <Character Number="130" Symbol="‚" Description="Single low-9 quotation mark" />
+    <Character Number="131" Symbol="ƒ" Description="Latin small letter f with hook" />
+    <Character Number="132" Symbol="„" Description="Double low-9 quotation mark" />
+    <Character Number="133" Symbol="…" Description="Horizontal ellipsis" />
+    <Character Number="134" Symbol="†" Description="Dagger" />
+    <Character Number="135" Symbol="‡" Description="Double dagger" />
+    <Character Number="136" Symbol="ˆ" Description="Circumflex accent" />
+    <Character Number="137" Symbol="‰" Description="Per mille sign" />
+    <Character Number="138" Symbol="Š" Description="Latin capital letter S with caron" />
+    <Character Number="139" Symbol="‹" Description="Single left-pointing angle quotation" />
+    <Character Number="140" Symbol="Œ" Description="Latin capital ligature OE" />
+    <Character Number="142" Symbol="Ž" Description="Latin captial letter Z with caron" />
+    <Character Number="145" Symbol="‘" Description="Left single quotation mark" />
+    <Character Number="146" Symbol="’" Description="Right single quotation mark" />
+    <Character Number="147" Symbol="“" Description="Left double quotation mark" />
+    <Character Number="148" Symbol="”" Description="Right double quotation mark" />
+    <Character Number="149" Symbol="•" Description="Bullet" />
+    <Character Number="150" Symbol="–" Description="En dash" />
+    <Character Number="151" Symbol="—" Description="Em dash" />
+    <Character Number="152" Symbol="˜" Description="Small tilde" />
+    <Character Number="153" Symbol="™" Description="Trade mark sign" />
+    <Character Number="154" Symbol="š" Description="Latin small letter S with caron" />
+    <Character Number="155" Symbol="›" Description="Single right-pointing angle quotation mark" />
+    <Character Number="156" Symbol="œ" Description="Latin small ligature oe" />
+    <Character Number="158" Symbol="ž" Description="Latin small letter z with caron" />
+    <Character Number="159" Symbol="Ÿ" Description="Latin capital letter Y with diaeresis" />
+    <Character Number="160" Symbol=" " Description="Non-breaking space" />
+    <Character Number="161" Symbol="¡" Description="Inverted exclamation mark" />
+    <Character Number="162" Symbol="¢" Description="Cent sign" />
+    <Character Number="163" Symbol="£" Description="Pound sign" />
+    <Character Number="164" Symbol="¤" Description="Currency sign" />
+    <Character Number="165" Symbol="¥" Description="Yen sign" />
+    <Character Number="166" Symbol="¦" Description="Pipe, Broken vertical bar" />
+    <Character Number="167" Symbol="§" Description="Section sign" />
+    <Character Number="168" Symbol="¨" Description="Spacing diaeresis - umlaut" />
+    <Character Number="169" Symbol="©" Description="Copyright sign" />
+    <Character Number="170" Symbol="ª" Description="Feminine ordinal indicator" />
+    <Character Number="171" Symbol="«" Description="Left double angle quotes" />
+    <Character Number="172" Symbol="¬" Description="Not sign" />
+    <Character Number="173" Symbol="­" Description="Soft hyphen" />
+    <Character Number="174" Symbol="®" Description="Registered trade mark sign" />
+    <Character Number="175" Symbol="¯" Description="Spacing macron - overline" />
+    <Character Number="176" Symbol="°" Description="Degree sign" />
+    <Character Number="177" Symbol="±" Description="Plus-or-minus sign" />
+    <Character Number="178" Symbol="²" Description="Superscript two - squared" />
+    <Character Number="179" Symbol="³" Description="Superscript three - cubed" />
+    <Character Number="180" Symbol="´" Description="Acute accent - spacing acute" />
+    <Character Number="181" Symbol="µ" Description="Micro sign" />
+    <Character Number="182" Symbol="¶" Description="Pilcrow sign - paragraph sign" />
+    <Character Number="183" Symbol="·" Description="Middle dot - Georgian comma" />
+    <Character Number="184" Symbol="¸" Description="Spacing cedilla" />
+    <Character Number="185" Symbol="¹" Description="Superscript one" />
+    <Character Number="186" Symbol="º" Description="Masculine ordinal indicator" />
+    <Character Number="187" Symbol="»" Description="Right double angle quotes" />
+    <Character Number="188" Symbol="¼" Description="Fraction one quarter" />
+    <Character Number="189" Symbol="½" Description="Fraction one half" />
+    <Character Number="190" Symbol="¾" Description="Fraction three quarters" />
+    <Character Number="191" Symbol="¿" Description="Inverted question mark" />
+    <Character Number="192" Symbol="À" Description="Latin capital letter A with grave" />
+    <Character Number="193" Symbol="Á" Description="Latin capital letter A with acute" />
+    <Character Number="194" Symbol="Â" Description="Latin capital letter A with circumflex" />
+    <Character Number="195" Symbol="Ã" Description="Latin capital letter A with tilde" />
+    <Character Number="196" Symbol="Ä" Description="Latin capital letter A with diaeresis" />
+    <Character Number="197" Symbol="Å" Description="Latin capital letter A with ring above" />
+    <Character Number="198" Symbol="Æ" Description="Latin capital letter AE" />
+    <Character Number="199" Symbol="Ç" Description="Latin capital letter C with cedilla" />
+    <Character Number="200" Symbol="È" Description="Latin capital letter E with grave" />
+    <Character Number="201" Symbol="É" Description="Latin capital letter E with acute" />
+    <Character Number="202" Symbol="Ê" Description="Latin capital letter E with circumflex" />
+    <Character Number="203" Symbol="Ë" Description="Latin capital letter E with diaeresis" />
+    <Character Number="204" Symbol="Ì" Description="Latin capital letter I with grave" />
+    <Character Number="205" Symbol="Í" Description="Latin capital letter I with acute" />
+    <Character Number="206" Symbol="Î" Description="Latin capital letter I with circumflex" />
+    <Character Number="207" Symbol="Ï" Description="Latin capital letter I with diaeresis" />
+    <Character Number="208" Symbol="Ð" Description="Latin capital letter ETH" />
+    <Character Number="209" Symbol="Ñ" Description="Latin capital letter N with tilde" />
+    <Character Number="210" Symbol="Ò" Description="Latin capital letter O with grave" />
+    <Character Number="211" Symbol="Ó" Description="Latin capital letter O with acute" />
+    <Character Number="212" Symbol="Ô" Description="Latin capital letter O with circumflex" />
+    <Character Number="213" Symbol="Õ" Description="Latin capital letter O with tilde" />
+    <Character Number="214" Symbol="Ö" Description="Latin capital letter O with diaeresis" />
+    <Character Number="215" Symbol="×" Description="Multiplication sign" />
+    <Character Number="216" Symbol="Ø" Description="Latin capital letter O with slash" />
+    <Character Number="217" Symbol="Ù" Description="Latin capital letter U with grave" />
+    <Character Number="218" Symbol="Ú" Description="Latin capital letter U with acute" />
+    <Character Number="219" Symbol="Û" Description="Latin capital letter U with circumflex" />
+    <Character Number="220" Symbol="Ü" Description="Latin capital letter U with diaeresis" />
+    <Character Number="221" Symbol="Ý" Description="Latin capital letter Y with acute" />
+    <Character Number="222" Symbol="Þ" Description="Latin capital letter THORN" />
+    <Character Number="223" Symbol="ß" Description="Latin small letter sharp s - ess-zed" />
+    <Character Number="224" Symbol="à" Description="Latin small letter a with grave" />
+    <Character Number="225" Symbol="á" Description="Latin small letter a with acute" />
+    <Character Number="226" Symbol="â" Description="Latin small letter a with circumflex" />
+    <Character Number="227" Symbol="ã" Description="Latin small letter a with tilde" />
+    <Character Number="228" Symbol="ä" Description="Latin small letter a with diaeresis" />
+    <Character Number="229" Symbol="å" Description="Latin small letter a with ring above" />
+    <Character Number="230" Symbol="æ" Description="Latin small letter ae" />
+    <Character Number="231" Symbol="ç" Description="Latin small letter c with cedilla" />
+    <Character Number="232" Symbol="è" Description="Latin small letter e with grave" />
+    <Character Number="233" Symbol="é" Description="Latin small letter e with acute" />
+    <Character Number="234" Symbol="ê" Description="Latin small letter e with circumflex" />
+    <Character Number="235" Symbol="ë" Description="Latin small letter e with diaeresis" />
+    <Character Number="236" Symbol="ì" Description="Latin small letter i with grave" />
+    <Character Number="237" Symbol="í" Description="Latin small letter i with acute" />
+    <Character Number="238" Symbol="î" Description="Latin small letter i with circumflex" />
+    <Character Number="239" Symbol="ï" Description="Latin small letter i with diaeresis" />
+    <Character Number="240" Symbol="ð" Description="Latin small letter eth" />
+    <Character Number="241" Symbol="ñ" Description="Latin small letter n with tilde" />
+    <Character Number="242" Symbol="ò" Description="Latin small letter o with grave" />
+    <Character Number="243" Symbol="ó" Description="Latin small letter o with acute" />
+    <Character Number="244" Symbol="ô" Description="Latin small letter o with circumflex" />
+    <Character Number="245" Symbol="õ" Description="Latin small letter o with tilde" />
+    <Character Number="246" Symbol="ö" Description="Latin small letter o with diaeresis" />
+    <Character Number="247" Symbol="÷" Description="Division sign" />
+    <Character Number="248" Symbol="ø" Description="Latin small letter o with slash" />
+    <Character Number="249" Symbol="ù" Description="Latin small letter u with grave" />
+    <Character Number="250" Symbol="ú" Description="Latin small letter u with acute" />
+    <Character Number="251" Symbol="û" Description="Latin small letter u with circumflex" />
+    <Character Number="252" Symbol="ü" Description="Latin small letter u with diaeresis" />
+    <Character Number="253" Symbol="ý" Description="Latin small letter y with acute" />
+    <Character Number="254" Symbol="þ" Description="Latin small letter thorn" />
+    <Character Number="255" Symbol="ÿ" Description="Latin small letter y with diaeresis" />
+  </CharacterSet>
+</CharacterSets>

@@ -1,0 +1,918 @@
+﻿<Window x:Class="JonathanRuisi.PixelFontDesigner.Windows.PreferencesWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:s="clr-namespace:System;assembly=mscorlib"
+        xmlns:p="clr-namespace:JonathanRuisi.PixelFontDesigner.Properties"
+        xmlns:wpfControlLibrary="clr-namespace:JonathanRuisi.WpfControlLibrary;assembly=WpfControlLibrary"
+        xmlns:mathematics="clr-namespace:JonathanRuisi.UtilityLibrary;assembly=UtilityLibrary"
+        xmlns:controls="clr-namespace:JonathanRuisi.PixelFontDesigner.Controls"
+        Title="Pixel Font Designer Preferences"
+        Width="800" MinWidth="800" Height="500" MinHeight="500"
+        ResizeMode="CanResize" WindowStartupLocation="CenterOwner"
+        WindowStyle="ToolWindow" ShowInTaskbar="False" Topmost="True"
+        Loaded="Window_Loaded" Closing="Window_Closing">
+
+	<Window.Resources>
+		<wpfControlLibrary:EnumToBooleanConverter x:Key="EnumToBooleanConverter" />
+		<wpfControlLibrary:ColorSpaceToOverlaySolidColorBrushConverter x:Key="ColorSpaceOverlayConverter" />
+
+		<ObjectDataProvider x:Key="EndiannessValues"
+		                    MethodName="GetValues" ObjectType="{x:Type s:Enum}">
+			<ObjectDataProvider.MethodParameters>
+				<x:Type TypeName="mathematics:Endianness" />
+			</ObjectDataProvider.MethodParameters>
+		</ObjectDataProvider>
+
+		<ObjectDataProvider x:Key="RowOrColumnValues"
+		                    MethodName="GetValues" ObjectType="{x:Type s:Enum}">
+			<ObjectDataProvider.MethodParameters>
+				<x:Type TypeName="mathematics:RowOrColumn" />
+			</ObjectDataProvider.MethodParameters>
+		</ObjectDataProvider>
+
+		<Style x:Key="ColorSetItemContainerStyle" TargetType="ListBoxItem">
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="ListBoxItem">
+						<Rectangle Stretch="Fill" Width="25" Height="25" Margin="3"
+						           Fill="{Binding Converter={StaticResource ColorSpaceConverter}}" />
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+	</Window.Resources>
+
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="*" />
+			<RowDefinition Height="Auto" />
+		</Grid.RowDefinitions>
+
+		<TabControl Grid.Row="0" TabStripPlacement="Top" Margin="0,0,0,10">
+			<!-- Appearance -->
+			<TabItem Header="Appearance">
+				<Grid>
+					<Grid.RowDefinitions>
+						<RowDefinition Height="Auto" />
+						<RowDefinition Height="Auto" />
+						<RowDefinition Height="Auto" />
+						<RowDefinition Height="Auto" />
+					</Grid.RowDefinitions>
+
+					<GroupBox Header="Environment Colors" Grid.Row="0" Margin="5,2,5,0" FontWeight="Bold" BorderThickness="2">
+						<Grid Margin="5,3">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="*" />
+								<ColumnDefinition Width="*" />
+							</Grid.ColumnDefinitions>
+
+							<Border Grid.Column="0" BorderThickness="0" Margin="0,0,5,0"
+							        Background="{StaticResource TransparencyCheckerboardDrawingBrush}">
+								<Button Margin="0" Padding="2"
+								        BorderThickness="0" FontSize="18" FontWeight="Bold"
+								        HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+								        HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+								        Background="{Binding Source={x:Static p:Settings.Default},
+															 Path=Preferences_Appearance_MidgroundColor,
+															 Converter={StaticResource ColorSpaceConverter}}"
+								        Foreground="{Binding Source={x:Static p:Settings.Default},
+															 Path=Preferences_Appearance_MidgroundColor,
+															 Converter={StaticResource ColorSpaceOverlayConverter}}"
+								        Content="Midground" Click="ButtonMidgroundColor_Click" />
+							</Border>
+
+							<Border Grid.Column="1" BorderThickness="0" Margin="5,0,0,0"
+							        Background="{StaticResource TransparencyCheckerboardDrawingBrush}">
+								<Button Margin="0" Padding="2"
+								        BorderThickness="0" FontSize="18" FontWeight="Bold"
+								        HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+								        HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+								        Background="{Binding Source={x:Static p:Settings.Default},
+															 Path=Preferences_Appearance_AccentColor,
+															 Converter={StaticResource ColorSpaceConverter}}"
+								        Foreground="{Binding Source={x:Static p:Settings.Default},
+															 Path=Preferences_Appearance_AccentColor,
+															 Converter={StaticResource ColorSpaceOverlayConverter}}"
+								        Content="Accent" Click="ButtonAccentColor_Click" />
+							</Border>
+						</Grid>
+					</GroupBox>
+
+					<GroupBox Header="Character Set Label Colors" Grid.Row="1" Margin="5,5,5,0" FontWeight="Bold" BorderThickness="2">
+						<Grid>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="Auto" />
+								<ColumnDefinition Width="*" />
+							</Grid.ColumnDefinitions>
+
+							<Button Grid.Column="0" HorizontalAlignment="Left" Padding="10,3" Margin="3"
+							        Click="ButtonCharacterSetColors_Click">
+								Edit...
+							</Button>
+							<ListBox Grid.Column="1" SelectionMode="Single" BorderThickness="0" Margin="10,0"
+							         ItemContainerStyle="{StaticResource ColorSetItemContainerStyle}"
+							         ItemsSource="{Binding Source={x:Static p:Settings.Default},
+														   Path=Preferences_Appearance_CharacterSetColors}">
+								<ListBox.ItemsPanel>
+									<ItemsPanelTemplate>
+										<WrapPanel Orientation="Horizontal" />
+									</ItemsPanelTemplate>
+								</ListBox.ItemsPanel>
+							</ListBox>
+						</Grid>
+					</GroupBox>
+
+					<GroupBox Header="Character Pixel Grid" Grid.Row="2" Margin="5,5,5,0" FontWeight="Bold" BorderThickness="2">
+						<Grid Margin="0" Background="DarkGray">
+							<Grid.RowDefinitions>
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="*" />
+							</Grid.RowDefinitions>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="*" />
+								<ColumnDefinition Width="*" />
+								<ColumnDefinition Width="*" />
+								<ColumnDefinition Width="*" />
+							</Grid.ColumnDefinitions>
+
+							<Label Grid.Row="0" Grid.Column="0" Margin="0" Padding="1"
+							       HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+							       HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+							       FontSize="14" FontWeight="Regular">
+								General Appearance
+							</Label>
+							<Label Grid.Row="0" Grid.Column="1" Margin="0" Padding="1"
+							       HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+							       HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+							       FontSize="14" FontWeight="Regular">
+								Overlay Colors
+							</Label>
+							<Label Grid.Row="0" Grid.Column="2" Margin="0" Padding="1"
+							       HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+							       HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+							       FontSize="14" FontWeight="Regular">
+								Guide Colors
+							</Label>
+							<Label Grid.Row="0" Grid.Column="3" Margin="0" Padding="1"
+							       HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+							       HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+							       FontSize="14" FontWeight="Regular">
+								Guide Thicknesses
+							</Label>
+
+							<Grid Grid.Row="1" Grid.Column="0" Margin="0,0,2,0"
+							      Background="{StaticResource TransparencyCheckerboardDrawingBrush}">
+								<Grid.RowDefinitions>
+									<RowDefinition Height="*" />
+									<RowDefinition Height="*" />
+									<RowDefinition Height="*" />
+									<RowDefinition Height="*" />
+									<RowDefinition Height="Auto" />
+								</Grid.RowDefinitions>
+
+								<Button Grid.Row="0" Margin="0" Padding="2" BorderThickness="0" FontSize="18" FontWeight="Bold"
+								        HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+								        HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+								        Background="{Binding Source={x:Static p:Settings.Default},
+															 Path=Preferences_Appearance_PixelBorderColor,
+															 Converter={StaticResource ColorSpaceConverter}}"
+								        Foreground="{Binding Source={x:Static p:Settings.Default},
+															 Path=Preferences_Appearance_PixelBorderColor,
+															 Converter={StaticResource ColorSpaceOverlayConverter}}"
+								        Content="Pixel Border" Click="ButtonPixelBorderColor_Click" />
+
+								<Button Grid.Row="1" Margin="0" Padding="2" BorderThickness="0" FontSize="18" FontWeight="Bold"
+								        HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+								        HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+								        Background="{Binding Source={x:Static p:Settings.Default},
+															 Path=Preferences_Appearance_PixelMouseOverColor,
+															 Converter={StaticResource ColorSpaceConverter}}"
+								        Foreground="{Binding Source={x:Static p:Settings.Default},
+															 Path=Preferences_Appearance_PixelMouseOverColor,
+															 Converter={StaticResource ColorSpaceOverlayConverter}}"
+								        Content="Mouse Over Pixel" Click="ButtonPixelMouseOverColor_Click" />
+
+								<Button Grid.Row="2" Margin="0" Padding="2" BorderThickness="0" FontSize="18" FontWeight="Bold"
+								        HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+								        HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+								        Background="{Binding Source={x:Static p:Settings.Default},
+															 Path=Preferences_Appearance_PixelSetColor,
+															 Converter={StaticResource ColorSpaceConverter}}"
+								        Foreground="{Binding Source={x:Static p:Settings.Default},
+															 Path=Preferences_Appearance_PixelSetColor,
+															 Converter={StaticResource ColorSpaceOverlayConverter}}"
+								        Content="Set Pixel" Click="ButtonPixelSetColor_Click" />
+
+								<Button Grid.Row="3" Margin="0" Padding="2" BorderThickness="0" FontSize="18" FontWeight="Bold"
+								        HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+								        HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+								        Background="{Binding Source={x:Static p:Settings.Default},
+															 Path=Preferences_Appearance_PixelClearColor,
+															 Converter={StaticResource ColorSpaceConverter}}"
+								        Foreground="{Binding Source={x:Static p:Settings.Default},
+															 Path=Preferences_Appearance_PixelClearColor,
+															 Converter={StaticResource ColorSpaceOverlayConverter}}"
+								        Content="Clear Pixel" Click="ButtonPixelClearColor_Click" />
+
+								<Grid Grid.Row="4" Background="White">
+									<Grid.RowDefinitions>
+										<RowDefinition Height="Auto" />
+										<RowDefinition Height="Auto" />
+									</Grid.RowDefinitions>
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="Auto" />
+										<ColumnDefinition Width="Auto" />
+										<ColumnDefinition Width="*" />
+										<ColumnDefinition Width="30" />
+									</Grid.ColumnDefinitions>
+
+									<TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"
+									           Margin="2,0,0,0" Padding="0" FontWeight="Regular" Text="Pixel Border Thickness:" />
+									<TextBlock Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"
+									           Padding="5,0,0,0" FontWeight="Regular"
+									           Text="{Binding Source={x:Static p:Settings.Default},
+															  Path=Preferences_Appearance_PixelBorderThickness,
+															  StringFormat=F2}" />
+									<Slider Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Margin="0,0,0,2"
+									        HorizontalAlignment="Stretch" VerticalAlignment="Center"
+									        Minimum="0.0" Maximum="10" SmallChange="0.25" LargeChange="1.0"
+									        TickPlacement="None" TickFrequency="0.25" IsSnapToTickEnabled="True"
+									        Value="{Binding Source={x:Static p:Settings.Default},
+															Path=Preferences_Appearance_PixelBorderThickness,
+															Mode=TwoWay}" />
+									<Rectangle Grid.Row="0" Grid.RowSpan="2" Grid.Column="3" Margin="10,4" SnapsToDevicePixels="False"
+									           HorizontalAlignment="Center" VerticalAlignment="Stretch" StrokeThickness="0"
+									           Fill="{Binding Source={x:Static p:Settings.Default},
+															  Path=Preferences_Appearance_PixelBorderColor,
+															  Converter={StaticResource ColorSpaceConverter},
+															  Mode=TwoWay}"
+									           Width="{Binding Source={x:Static p:Settings.Default},
+															   Path=Preferences_Appearance_PixelBorderThickness}" />
+								</Grid>
+							</Grid>
+
+							<Grid Grid.Row="1" Grid.Column="1" Margin="2,0"
+							      Background="{StaticResource TransparencyCheckerboardDrawingBrush}">
+								<Grid.RowDefinitions>
+									<RowDefinition Height="*" />
+									<RowDefinition Height="*" />
+									<RowDefinition Height="*" />
+								</Grid.RowDefinitions>
+
+								<Button Grid.Row="0" Margin="0" Padding="2" BorderThickness="0" FontSize="18" FontWeight="Bold"
+								        HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+								        HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+								        Background="{Binding Source={x:Static p:Settings.Default},
+															 Path=Preferences_Appearance_AscentOverlayColor,
+															 Converter={StaticResource ColorSpaceConverter}}"
+								        Foreground="{Binding Source={x:Static p:Settings.Default},
+															 Path=Preferences_Appearance_AscentOverlayColor,
+															 Converter={StaticResource ColorSpaceOverlayConverter}}"
+								        Content="Ascent" Click="ButtonAscentOverlayColor_Click" />
+
+								<Button Grid.Row="1" Margin="0" Padding="2" BorderThickness="0" FontSize="18" FontWeight="Bold"
+								        HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+								        HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+								        Background="{Binding Source={x:Static p:Settings.Default},
+															 Path=Preferences_Appearance_DescentOverlayColor,
+															 Converter={StaticResource ColorSpaceConverter}}"
+								        Foreground="{Binding Source={x:Static p:Settings.Default},
+															 Path=Preferences_Appearance_DescentOverlayColor,
+															 Converter={StaticResource ColorSpaceOverlayConverter}}"
+								        Content="Descent" Click="ButtonDescentOverlayColor_Click" />
+
+								<Button Grid.Row="2" Margin="0" Padding="2" BorderThickness="0" FontSize="18" FontWeight="Bold"
+								        HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+								        HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+								        Background="{Binding Source={x:Static p:Settings.Default},
+															 Path=Preferences_Appearance_BearingOverlayColor,
+															 Converter={StaticResource ColorSpaceConverter}}"
+								        Foreground="{Binding Source={x:Static p:Settings.Default},
+															 Path=Preferences_Appearance_BearingOverlayColor,
+															 Converter={StaticResource ColorSpaceOverlayConverter}}"
+								        Content="Bearing" Click="ButtonBearingOverlayColor_Click" />
+							</Grid>
+
+							<Grid Grid.Row="1" Grid.Column="2" Margin="2,0"
+							      Background="{StaticResource TransparencyCheckerboardDrawingBrush}">
+								<Grid.RowDefinitions>
+									<RowDefinition Height="*" />
+									<RowDefinition Height="*" />
+									<RowDefinition Height="*" />
+									<RowDefinition Height="*" />
+								</Grid.RowDefinitions>
+
+								<Button Grid.Row="0" Margin="0" Padding="2" BorderThickness="0" FontSize="18" FontWeight="Bold"
+								        HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+								        HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+								        Background="{Binding Source={x:Static p:Settings.Default},
+															 Path=Preferences_Appearance_BaselineGuideColor,
+															 Converter={StaticResource ColorSpaceConverter}}"
+								        Foreground="{Binding Source={x:Static p:Settings.Default},
+															 Path=Preferences_Appearance_BaselineGuideColor,
+															 Converter={StaticResource ColorSpaceOverlayConverter}}"
+								        Content="Baseline" Click="ButtonBaselineGuideColor_Click" />
+
+								<Button Grid.Row="1" Margin="0" Padding="2" BorderThickness="0" FontSize="18" FontWeight="Bold"
+								        HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+								        HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+								        Background="{Binding Source={x:Static p:Settings.Default},
+															 Path=Preferences_Appearance_UppercaseGuideColor,
+															 Converter={StaticResource ColorSpaceConverter}}"
+								        Foreground="{Binding Source={x:Static p:Settings.Default},
+															 Path=Preferences_Appearance_UppercaseGuideColor,
+															 Converter={StaticResource ColorSpaceOverlayConverter}}"
+								        Content="Uppercase" Click="ButtonUppercaseGuideColor_Click" />
+
+								<Button Grid.Row="2" Margin="0" Padding="2" BorderThickness="0" FontSize="18" FontWeight="Bold"
+								        HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+								        HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+								        Background="{Binding Source={x:Static p:Settings.Default},
+															 Path=Preferences_Appearance_LowercaseGuideColor,
+															 Converter={StaticResource ColorSpaceConverter}}"
+								        Foreground="{Binding Source={x:Static p:Settings.Default},
+															 Path=Preferences_Appearance_LowercaseGuideColor,
+															 Converter={StaticResource ColorSpaceOverlayConverter}}"
+								        Content="Lowercase" Click="ButtonLowercaseGuideColor_Click" />
+
+								<Button Grid.Row="3" Margin="0" Padding="2" BorderThickness="0" FontSize="18" FontWeight="Bold"
+								        HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+								        HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+								        Background="{Binding Source={x:Static p:Settings.Default},
+															 Path=Preferences_Appearance_BearingGuideColor,
+															 Converter={StaticResource ColorSpaceConverter}}"
+								        Foreground="{Binding Source={x:Static p:Settings.Default},
+															 Path=Preferences_Appearance_BearingGuideColor,
+															 Converter={StaticResource ColorSpaceOverlayConverter}}"
+								        Content="Bearings" Click="ButtonBearingGuideColor_Click" />
+							</Grid>
+
+							<Grid Grid.Row="1" Grid.Column="3" Background="DarkGray" Margin="2,0,0,0" IsSharedSizeScope="True">
+								<Grid.RowDefinitions>
+									<RowDefinition Height="*" />
+									<RowDefinition Height="*" />
+									<RowDefinition Height="*" />
+									<RowDefinition Height="*" />
+								</Grid.RowDefinitions>
+
+								<Grid Grid.Row="0" Background="White" Margin="0,0,0,2">
+									<Grid.RowDefinitions>
+										<RowDefinition Height="Auto" />
+										<RowDefinition Height="Auto" />
+									</Grid.RowDefinitions>
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="Auto" SharedSizeGroup="Column1" />
+										<ColumnDefinition Width="Auto" />
+										<ColumnDefinition Width="*" />
+										<ColumnDefinition Width="30" />
+									</Grid.ColumnDefinitions>
+
+									<TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center"
+									           Margin="2,0,0,0" Padding="0" FontWeight="Regular" Text="Baseline:" />
+									<TextBlock Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"
+									           Padding="5,0,0,0" FontWeight="Regular"
+									           Text="{Binding Source={x:Static p:Settings.Default},
+															  Path=Preferences_Appearance_BaselineGuideThickness,
+															  StringFormat=F2}" />
+									<Slider Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Margin="0,0,0,2"
+									        HorizontalAlignment="Stretch" VerticalAlignment="Center"
+									        Minimum="0.0" Maximum="10" SmallChange="0.25" LargeChange="1.0"
+									        TickPlacement="None" TickFrequency="0.25" IsSnapToTickEnabled="True"
+									        Value="{Binding Source={x:Static p:Settings.Default},
+															Path=Preferences_Appearance_BaselineGuideThickness,
+															Mode=TwoWay}" />
+									<Rectangle Grid.Row="0" Grid.RowSpan="2" Grid.Column="3" Margin="10,4" SnapsToDevicePixels="False"
+									           HorizontalAlignment="Center" VerticalAlignment="Stretch" StrokeThickness="0"
+									           Fill="{Binding Source={x:Static p:Settings.Default},
+															  Path=Preferences_Appearance_BaselineGuideColor,
+															  Converter={StaticResource ColorSpaceConverter},
+															  Mode=TwoWay}"
+									           Width="{Binding Source={x:Static p:Settings.Default},
+															   Path=Preferences_Appearance_BaselineGuideThickness}" />
+								</Grid>
+
+								<Grid Grid.Row="1" Background="White" Margin="0,0,0,2">
+									<Grid.RowDefinitions>
+										<RowDefinition Height="Auto" />
+										<RowDefinition Height="Auto" />
+									</Grid.RowDefinitions>
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="Auto" SharedSizeGroup="Column1" />
+										<ColumnDefinition Width="Auto" />
+										<ColumnDefinition Width="*" />
+										<ColumnDefinition Width="30" />
+									</Grid.ColumnDefinitions>
+
+									<TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center"
+									           Margin="2,0,0,0" Padding="0" FontWeight="Regular" Text="Uppercase:" />
+									<TextBlock Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"
+									           Padding="5,0,0,0" FontWeight="Regular"
+									           Text="{Binding Source={x:Static p:Settings.Default},
+															  Path=Preferences_Appearance_UppercaseGuideThickness,
+															  StringFormat=F2}" />
+									<Slider Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Margin="0,0,0,2"
+									        HorizontalAlignment="Stretch" VerticalAlignment="Center"
+									        Minimum="0.0" Maximum="10" SmallChange="0.25" LargeChange="1.0"
+									        TickPlacement="None" TickFrequency="0.25" IsSnapToTickEnabled="True"
+									        Value="{Binding Source={x:Static p:Settings.Default},
+															Path=Preferences_Appearance_UppercaseGuideThickness,
+															Mode=TwoWay}" />
+									<Rectangle Grid.Row="0" Grid.RowSpan="2" Grid.Column="3" Margin="10,4" SnapsToDevicePixels="False"
+									           HorizontalAlignment="Center" VerticalAlignment="Stretch" StrokeThickness="0"
+									           Fill="{Binding Source={x:Static p:Settings.Default},
+															  Path=Preferences_Appearance_UppercaseGuideColor,
+															  Converter={StaticResource ColorSpaceConverter},
+															  Mode=TwoWay}"
+									           Width="{Binding Source={x:Static p:Settings.Default},
+															   Path=Preferences_Appearance_UppercaseGuideThickness}" />
+								</Grid>
+
+								<Grid Grid.Row="2" Background="White" Margin="0,0,0,2">
+									<Grid.RowDefinitions>
+										<RowDefinition Height="Auto" />
+										<RowDefinition Height="Auto" />
+									</Grid.RowDefinitions>
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="Auto" SharedSizeGroup="Column1" />
+										<ColumnDefinition Width="Auto" />
+										<ColumnDefinition Width="*" />
+										<ColumnDefinition Width="30" />
+									</Grid.ColumnDefinitions>
+
+									<TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center"
+									           Margin="2,0,0,0" Padding="0" FontWeight="Regular" Text="Lowercase:" />
+									<TextBlock Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"
+									           Padding="5,0,0,0" FontWeight="Regular"
+									           Text="{Binding Source={x:Static p:Settings.Default},
+															  Path=Preferences_Appearance_LowercaseGuideThickness,
+															  StringFormat=F2}" />
+									<Slider Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Margin="0,0,0,2"
+									        HorizontalAlignment="Stretch" VerticalAlignment="Center"
+									        Minimum="0.0" Maximum="10" SmallChange="0.25" LargeChange="1.0"
+									        TickPlacement="None" TickFrequency="0.25" IsSnapToTickEnabled="True"
+									        Value="{Binding Source={x:Static p:Settings.Default},
+															Path=Preferences_Appearance_LowercaseGuideThickness,
+															Mode=TwoWay}" />
+									<Rectangle Grid.Row="0" Grid.RowSpan="2" Grid.Column="3" Margin="10,4" SnapsToDevicePixels="False"
+									           HorizontalAlignment="Center" VerticalAlignment="Stretch" StrokeThickness="0"
+									           Fill="{Binding Source={x:Static p:Settings.Default},
+															  Path=Preferences_Appearance_LowercaseGuideColor,
+															  Converter={StaticResource ColorSpaceConverter},
+															  Mode=TwoWay}"
+									           Width="{Binding Source={x:Static p:Settings.Default},
+															   Path=Preferences_Appearance_LowercaseGuideThickness}" />
+								</Grid>
+
+								<Grid Grid.Row="3" Background="White">
+									<Grid.RowDefinitions>
+										<RowDefinition Height="Auto" />
+										<RowDefinition Height="Auto" />
+									</Grid.RowDefinitions>
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="Auto" SharedSizeGroup="Column1" />
+										<ColumnDefinition Width="Auto" />
+										<ColumnDefinition Width="*" />
+										<ColumnDefinition Width="30" />
+									</Grid.ColumnDefinitions>
+
+									<TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center"
+									           Margin="2,0,0,0" Padding="0" FontWeight="Regular" Text="Bearings:" />
+									<TextBlock Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"
+									           Padding="5,0,0,0" FontWeight="Regular"
+									           Text="{Binding Source={x:Static p:Settings.Default},
+															  Path=Preferences_Appearance_BearingGuideThickness,
+															  StringFormat=F2}" />
+									<Slider Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Margin="0,0,0,2"
+									        HorizontalAlignment="Stretch" VerticalAlignment="Center"
+									        Minimum="0.0" Maximum="10" SmallChange="0.25" LargeChange="1.0"
+									        TickPlacement="None" TickFrequency="0.25" IsSnapToTickEnabled="True"
+									        Value="{Binding Source={x:Static p:Settings.Default},
+															Path=Preferences_Appearance_BearingGuideThickness,
+															Mode=TwoWay}" />
+									<Rectangle Grid.Row="0" Grid.RowSpan="2" Grid.Column="3" Margin="10,4" SnapsToDevicePixels="False"
+									           HorizontalAlignment="Center" VerticalAlignment="Stretch" StrokeThickness="0"
+									           Fill="{Binding Source={x:Static p:Settings.Default},
+															  Path=Preferences_Appearance_BearingGuideColor,
+															  Converter={StaticResource ColorSpaceConverter},
+															  Mode=TwoWay}"
+									           Width="{Binding Source={x:Static p:Settings.Default},
+															   Path=Preferences_Appearance_BearingGuideThickness}" />
+								</Grid>
+							</Grid>
+						</Grid>
+					</GroupBox>
+
+					<GroupBox Header="List Box Behavior" Grid.Row="3" Margin="5,5,5,0" FontWeight="Bold" BorderThickness="2">
+						<CheckBox Margin="10,5" FontWeight="Regular" VerticalContentAlignment="Center"
+						          Content="Smooth Scrolling"
+						          IsChecked="{Binding Source={x:Static p:Settings.Default},
+													  Path=Preferences_Appearance_ListBox_SmoothScrolling,
+													  Mode=TwoWay}" />
+					</GroupBox>
+				</Grid>
+			</TabItem>
+
+			<!-- Export -->
+			<TabItem Header="Export">
+				<Grid>
+					<Grid.RowDefinitions>
+						<RowDefinition Height="Auto" />
+						<RowDefinition Height="Auto" />
+						<RowDefinition Height="Auto" />
+					</Grid.RowDefinitions>
+
+					<GroupBox Header="Array Declaration" Grid.Row="0" Margin="5,2,5,0" FontWeight="Bold" BorderThickness="2">
+						<Grid>
+							<Grid.RowDefinitions>
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="Auto" />
+							</Grid.RowDefinitions>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="Auto" />
+								<ColumnDefinition Width="*" />
+								<ColumnDefinition Width="*" />
+								<ColumnDefinition Width="Auto" />
+								<ColumnDefinition Width="*" />
+							</Grid.ColumnDefinitions>
+
+							<TextBlock Grid.Row="0" Grid.Column="0" FontWeight="Regular" Margin="10,5"
+							           HorizontalAlignment="Right" VerticalAlignment="Center" Text="Keywords:">
+								<TextBlock.ToolTip>
+									<ToolTip FontFamily="Consolas" FontSize="18" StaysOpen="True">
+										<s:String xml:space="preserve">
+Specifies which specific keywords will be used in the array declaration.
+Includes all keywords up to (but not includeing) the array type.
+										</s:String>
+									</ToolTip>
+								</TextBlock.ToolTip>
+							</TextBlock>
+
+							<TextBlock Grid.Row="1" Grid.Column="0" FontWeight="Regular" Margin="10,5"
+							           HorizontalAlignment="Right" VerticalAlignment="Center" Text="Type:">
+								<TextBlock.ToolTip>
+									<ToolTip FontFamily="Consolas" FontSize="18" StaysOpen="True">
+										<s:String xml:space="preserve">
+Defines the basic array element type.
+This can be any type that the target C compiler supports,
+and should be written exactly as it would appear in code.
+ALL TYPES ARE TREATED AS UNSIGNED
+										</s:String>
+									</ToolTip>
+								</TextBlock.ToolTip>
+							</TextBlock>
+
+							<TextBlock Grid.Row="1" Grid.Column="3" FontWeight="Regular" Margin="10,5"
+							           HorizontalAlignment="Stretch" VerticalAlignment="Center" Text="Bits:">
+								<TextBlock.ToolTip>
+									<ToolTip FontFamily="Consolas" FontSize="18" StaysOpen="True">
+										<s:String xml:space="preserve">
+Defines the basic array element size.
+This is the size (in bits) of the array element type.
+ALL TYPES ARE TREATED AS UNSIGNED
+										</s:String>
+									</ToolTip>
+								</TextBlock.ToolTip>
+							</TextBlock>
+
+							<TextBlock Grid.Row="2" Grid.Column="0" FontWeight="Regular" Margin="10,5"
+							           HorizontalAlignment="Right" VerticalAlignment="Center" Text="Name:">
+								<TextBlock.ToolTip>
+									<ToolTip FontFamily="Consolas" FontSize="18" StaysOpen="True">
+										<s:String xml:space="preserve">
+Specifies the actual name of the array object.
+Project-specific variables can be included using the following:
+%w - Width (in pixels) of each character
+%h - Height (in pixels) of each character
+										</s:String>
+									</ToolTip>
+								</TextBlock.ToolTip>
+							</TextBlock>
+
+							<TextBlock Grid.Row="3" Grid.Column="0" FontWeight="Regular" Margin="10,5"
+							           HorizontalAlignment="Right" VerticalAlignment="Center" Text="Endianness:">
+								<TextBlock.ToolTip>
+									<ToolTip FontFamily="Consolas" FontSize="18" StaysOpen="True">
+										<s:String xml:space="preserve">
+Specifies the order in which multi-byte values are stored in memory.
+This is specific to the target processor.
+Little Endian:
+	Least significant byte is stored at the lowest memory address
+Big Endian:
+	Most significant byte is stored at the lowest memory address
+										</s:String>
+									</ToolTip>
+								</TextBlock.ToolTip>
+							</TextBlock>
+
+							<TextBlock Grid.Row="4" Grid.Column="0" FontWeight="Regular" Margin="10,5"
+							           HorizontalAlignment="Right" VerticalAlignment="Center" Text="Interpretation:">
+								<TextBlock.ToolTip>
+									<ToolTip FontFamily="Consolas" FontSize="18" StaysOpen="True">
+										<s:String xml:space="preserve">
+Specifies how each character's pixel grid is stored in memory.
+Characters can be stored by row or by column.
+The "correct" choice is based on many factors,
+and how important those factors are for the target application:
+
+MEMORY:
+	The amount of memory used to store each character is a function of
+	the pixel dimensions as well as the array element size
+
+PERFORMANCE:
+	The performance of the target application is also a function of
+	the pixel dimensions as well as the array element size
+
+DISPLAY CONTROLLER:
+	The way in which graphics data is written to the target display controller.
+	In most cases this is either by row or by column, therefore this factor alone
+	may force the decision.
+
+SUGGESTION:
+	If the target application has multiple character sets,
+	it is recommended that this value remains consistent.
+										</s:String>
+									</ToolTip>
+								</TextBlock.ToolTip>
+							</TextBlock>
+
+							<TextBox Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="4" Margin="0,0,10,0" FontWeight="Regular"
+							         HorizontalAlignment="Stretch" HorizontalContentAlignment="Left"
+							         VerticalAlignment="Center" VerticalContentAlignment="Center"
+							         Text="{Binding Source={x:Static p:Settings.Default},
+													Path=Preferences_Export_ArrayDeclaration_Keywords,
+													Mode=TwoWay}" />
+							<TextBox Name="TextBoxType" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Margin="0" FontWeight="Regular"
+							         HorizontalAlignment="Stretch" HorizontalContentAlignment="Left"
+							         VerticalAlignment="Center" VerticalContentAlignment="Center"
+							         Text="{Binding Source={x:Static p:Settings.Default},
+													Path=Preferences_Export_ArrayDeclaration_Type,
+													Mode=TwoWay}"
+							         TextChanged="TextBoxType_TextChanged" />
+							<TextBox Name="TextBoxTypeSize" Grid.Row="1" Grid.Column="4" Margin="0,0,10,0" FontWeight="Regular"
+							         HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"
+							         VerticalAlignment="Center" VerticalContentAlignment="Center"
+							         Text="{Binding Source={x:Static p:Settings.Default},
+													Path=Preferences_Export_ArrayDeclaration_TypeSize,
+													Mode=TwoWay}" />
+							<TextBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="4" Margin="0,0,10,0" FontWeight="Regular"
+							         HorizontalAlignment="Stretch" HorizontalContentAlignment="Left"
+							         VerticalAlignment="Center" VerticalContentAlignment="Center"
+							         Text="{Binding Source={x:Static p:Settings.Default},
+													Path=Preferences_Export_ArrayDeclaration_Name,
+													Mode=TwoWay}" />
+
+							<ComboBox Grid.Row="3" Grid.Column="1" Margin="0" FontWeight="Regular"
+							          HorizontalAlignment="Stretch" VerticalAlignment="Center"
+							          HorizontalContentAlignment="Left" VerticalContentAlignment="Center"
+							          ItemsSource="{Binding Source={StaticResource EndiannessValues}}"
+							          SelectedItem="{Binding Source={x:Static p:Settings.Default},
+															 Path=Preferences_Export_ArrayDeclaration_Endianness,
+															 Mode=TwoWay}" />
+
+							<ComboBox Grid.Row="4" Grid.Column="1" Margin="0" FontWeight="Regular"
+							          HorizontalAlignment="Stretch" VerticalAlignment="Center"
+							          HorizontalContentAlignment="Left" VerticalContentAlignment="Center"
+							          ItemsSource="{Binding Source={StaticResource RowOrColumnValues}}"
+							          SelectedItem="{Binding Source={x:Static p:Settings.Default},
+															 Path=Preferences_Export_ArrayDeclaration_Interpretation,
+															 Mode=TwoWay}" />
+						</Grid>
+					</GroupBox>
+
+					<GroupBox Header="Array Element Radix" Grid.Row="1" Margin="5,5,5,0" FontWeight="Bold" BorderThickness="2">
+						<StackPanel Orientation="Horizontal">
+							<RadioButton GroupName="Radix" Margin="10,5" FontWeight="Regular" VerticalContentAlignment="Center"
+							             IsChecked="{Binding Source={x:Static p:Settings.Default},
+															 Path=Preferences_Export_ArrayElement_Radix,
+															 Converter={StaticResource EnumToBooleanConverter},
+															 ConverterParameter={x:Static mathematics:Radix.Binary},
+															 Mode=TwoWay}"
+							             Content="Binary">
+								<RadioButton.ToolTip>
+									<ToolTip FontFamily="Consolas" FontSize="18" StaysOpen="True">
+										<StackPanel Orientation="Vertical">
+											<TextBlock>
+												<s:String xml:space="preserve">
+Numeric values will appear in binary format:
+0b10110011
+												</s:String>
+											</TextBlock>
+											<TextBlock FontFamily="Segoe UI" FontSize="14" FontWeight="Bold" Foreground="Red">
+												NOTE: Some compilers may not support this format
+											</TextBlock>
+										</StackPanel>
+									</ToolTip>
+								</RadioButton.ToolTip>
+							</RadioButton>
+							<RadioButton GroupName="Radix" Margin="10,5" FontWeight="Regular" VerticalContentAlignment="Center"
+							             IsChecked="{Binding Source={x:Static p:Settings.Default},
+															 Path=Preferences_Export_ArrayElement_Radix,
+															 Converter={StaticResource EnumToBooleanConverter},
+															 ConverterParameter={x:Static mathematics:Radix.Decimal},
+															 Mode=TwoWay}"
+							             Content="Decimal">
+								<RadioButton.ToolTip>
+									<ToolTip FontFamily="Consolas" FontSize="18" StaysOpen="True">
+										<s:String xml:space="preserve">
+Numeric values will appear in decimal format:
+179
+										</s:String>
+									</ToolTip>
+								</RadioButton.ToolTip>
+							</RadioButton>
+							<RadioButton GroupName="Radix" Margin="10,5" FontWeight="Regular" VerticalContentAlignment="Center"
+							             IsChecked="{Binding Source={x:Static p:Settings.Default},
+															 Path=Preferences_Export_ArrayElement_Radix,
+															 Converter={StaticResource EnumToBooleanConverter},
+															 ConverterParameter={x:Static mathematics:Radix.Hexadecimal},
+															 Mode=TwoWay}"
+							             Content="Hexadecimal">
+								<RadioButton.ToolTip>
+									<ToolTip FontFamily="Consolas" FontSize="18" StaysOpen="True">
+										<StackPanel Orientation="Vertical">
+											<TextBlock>
+												<s:String xml:space="preserve">
+Numeric values will appear in hexadecimal format:
+0xB3
+												</s:String>
+											</TextBlock>
+											<TextBlock FontFamily="Segoe UI" FontSize="14" FontWeight="Bold" Foreground="Red">
+												NOTE: Some compilers may not support this format
+											</TextBlock>
+										</StackPanel>
+									</ToolTip>
+								</RadioButton.ToolTip>
+							</RadioButton>
+						</StackPanel>
+						<GroupBox.ToolTip>
+							<ToolTip FontFamily="Consolas" FontSize="18" StaysOpen="True">
+								<s:String xml:space="preserve">
+Determines the format in which numeric values appear in the exported code file.
+This option has no effect on code behavior, and serves mainly as a readability preference.
+								</s:String>
+							</ToolTip>
+						</GroupBox.ToolTip>
+					</GroupBox>
+
+					<GroupBox Header="Miscellaneous" Grid.Row="2" Margin="5,5,5,0" FontWeight="Bold" BorderThickness="2">
+						<CheckBox Margin="10,5" FontWeight="Regular" VerticalContentAlignment="Center"
+						          Content="Include Comments"
+						          IsChecked="{Binding Source={x:Static p:Settings.Default},
+													  Path=Preferences_Export_Miscellaneous_IncludeComments,
+													  Mode=TwoWay}">
+							<CheckBox.ToolTip>
+								<ToolTip FontFamily="Consolas" FontSize="18" StaysOpen="True">
+									<s:String xml:space="preserve">
+If checked, the generated code will include a comment next to each array item
+indicating the character index, symbol, and description
+									</s:String>
+								</ToolTip>
+							</CheckBox.ToolTip>
+						</CheckBox>
+					</GroupBox>
+				</Grid>
+			</TabItem>
+
+			<TabItem Header="Character Set Database">
+				<Grid>
+					<Grid.RowDefinitions>
+						<RowDefinition Height="Auto" />
+						<RowDefinition Height="0.5*" MinHeight="75" />
+						<RowDefinition Height="Auto" />
+						<RowDefinition Height="*" MinHeight="150" />
+					</Grid.RowDefinitions>
+
+					<!-- Character Set Tools -->
+					<StackPanel Grid.Row="0" Orientation="Horizontal"
+					            Background="{Binding Source={x:Static p:Settings.Default},
+													 Path=Preferences_Appearance_MidgroundColor,
+													 Converter={StaticResource ColorSpaceConverter}}">
+						<Button Name="ButtonCharacterSetAdd" Margin="3" TabIndex="1"
+						        BorderBrush="{Binding Source={x:Static p:Settings.Default},
+													  Path=Preferences_Appearance_AccentColor,
+													  Converter={StaticResource ColorSpaceConverter}}"
+						        Style="{StaticResource CommonButtonStyle}" BorderThickness="2" Padding="2"
+						        ContentTemplate="{StaticResource AddButtonDataTemplate}"
+						        Click="ButtonCharacterSetAdd_Click" />
+
+						<Button Name="ButtonCharacterSetRemove" Margin="3" TabIndex="2"
+						        BorderBrush="{Binding Source={x:Static p:Settings.Default},
+													  Path=Preferences_Appearance_AccentColor,
+													  Converter={StaticResource ColorSpaceConverter}}"
+						        Style="{StaticResource CommonButtonStyle}" BorderThickness="2" Padding="2"
+						        ContentTemplate="{StaticResource RemoveButtonDataTemplate}"
+						        Click="ButtonCharacterSetRemove_Click" />
+					</StackPanel>
+
+					<!-- Character Set List -->
+					<ListBox Name="ListBoxCharacterSet" Grid.Row="1" Grid.IsSharedSizeScope="True" TabIndex="0"
+					         HorizontalContentAlignment="Stretch" SelectionMode="Extended"
+					         ItemContainerStyle="{StaticResource CharacterSetItemContainerStyle}"
+					         ScrollViewer.CanContentScroll="{Binding Source={x:Static p:Settings.Default},
+																	 Path=Preferences_Appearance_ListBox_SmoothScrolling}"
+					         SelectionChanged="ListBoxCharacterSet_SelectionChanged" />
+
+					<!-- Character Data Tools -->
+					<Grid Grid.Row="2"
+					      Background="{Binding Source={x:Static p:Settings.Default},
+															Path=Preferences_Appearance_MidgroundColor,
+															Converter={StaticResource ColorSpaceConverter}}">
+						<Grid.RowDefinitions>
+							<RowDefinition Height="*" />
+							<RowDefinition Height="*" />
+						</Grid.RowDefinitions>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="Auto" />
+							<ColumnDefinition Width="Auto" />
+							<ColumnDefinition Width="*" />
+						</Grid.ColumnDefinitions>
+
+						<Button Name="ButtonCharacterAdd" Grid.Row="0" Grid.Column="0" Margin="3,5,3,3" TabIndex="4"
+						        BorderBrush="{Binding Source={x:Static p:Settings.Default},
+													  Path=Preferences_Appearance_AccentColor,
+													  Converter={StaticResource ColorSpaceConverter}}"
+						        Style="{StaticResource CommonButtonStyle}" BorderThickness="2" Padding="2"
+						        ContentTemplate="{StaticResource AddButtonDataTemplate}"
+						        ToolTip="Insert new character after currently selected character"
+						        Click="ButtonCharacterAdd_Click" />
+
+						<Button Name="ButtonCharacterMoveUp" Grid.Row="0" Grid.Column="1"
+						        Margin="3,5,3,3" IsEnabled="False" TabIndex="6"
+						        BorderBrush="{Binding Source={x:Static p:Settings.Default},
+													  Path=Preferences_Appearance_AccentColor,
+													  Converter={StaticResource ColorSpaceConverter}}"
+						        Style="{StaticResource CommonButtonStyle}" BorderThickness="2" Padding="2"
+						        ContentTemplate="{StaticResource MoveUpButtonDataTemplate}"
+						        ToolTip="Move currently selected character(s) up"
+						        Click="ButtonCharacterMoveUp_Click" />
+
+						<Button Name="ButtonCharacterMoveDown" Grid.Row="1" Grid.Column="1"
+						        Margin="3,3,3,5" IsEnabled="False" TabIndex="7"
+						        BorderBrush="{Binding Source={x:Static p:Settings.Default},
+													  Path=Preferences_Appearance_AccentColor,
+													  Converter={StaticResource ColorSpaceConverter}}"
+						        Style="{StaticResource CommonButtonStyle}" BorderThickness="2" Padding="2"
+						        ContentTemplate="{StaticResource MoveDownButtonDataTemplate}"
+						        ToolTip="Move currently selected character(s) down"
+						        Click="ButtonCharacterMoveDown_Click" />
+
+						<Button Name="ButtonCharacterRemove" Grid.Row="1" Grid.Column="0" Margin="3,3,3,5" TabIndex="5"
+						        BorderBrush="{Binding Source={x:Static p:Settings.Default},
+													  Path=Preferences_Appearance_AccentColor,
+													  Converter={StaticResource ColorSpaceConverter}}"
+						        Style="{StaticResource CommonButtonStyle}" BorderThickness="2" Padding="2"
+						        ContentTemplate="{StaticResource RemoveButtonDataTemplate}"
+						        ToolTip="Remove currently selected character(s)"
+						        Click="ButtonCharacterRemove_Click" />
+
+						<controls:CharacterInfoControl x:Name="CharacterInfo" Grid.Row="0" Grid.RowSpan="2" Grid.Column="2" Margin="10,5"
+						                               FontSize="16" DescriptionFontSize="12" FontFamily="Segoe UI" FontWeight="Bold"
+						                               DataContext="{Binding RelativeSource={RelativeSource Self}}" TabIndex="8"
+						                               TextBoxBackground="{Binding Source={x:Static p:Settings.Default},
+																				   Path=Preferences_Appearance_AccentColor,
+																				   Converter={StaticResource ColorSpaceConverter}}"
+						                               LabelForeground="{Binding Source={x:Static p:Settings.Default},
+																				 Path=Preferences_Appearance_AccentColor,
+																				 Converter={StaticResource ColorSpaceConverter}}"
+						                               Foreground="{Binding Source={x:Static p:Settings.Default},
+																			Path=Preferences_Appearance_MidgroundColor,
+																			Converter={StaticResource ColorSpaceConverter}}" />
+					</Grid>
+
+					<!-- Character Data List -->
+					<ListBox Name="ListBoxCharacterData" Grid.Row="3" Grid.IsSharedSizeScope="True" TabIndex="3"
+					         HorizontalContentAlignment="Stretch" SelectionMode="Extended"
+					         ScrollViewer.CanContentScroll="{Binding Source={x:Static p:Settings.Default},
+																	 Path=Preferences_Appearance_ListBox_SmoothScrolling}"
+					         ItemContainerStyle="{StaticResource CharacterDataItemContainerStyle}"
+					         SelectionChanged="ListBoxCharacterData_SelectionChanged"
+					         KeyDown="ListBoxCharacterData_KeyDown" />
+				</Grid>
+			</TabItem>
+		</TabControl>
+
+		<Grid Grid.Row="1">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="Auto" />
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="Auto" />
+				<ColumnDefinition Width="Auto" />
+			</Grid.ColumnDefinitions>
+
+			<Button Grid.Column="0" Padding="10,3" Margin="5" Click="ButtonReset_Click">Load Defaults</Button>
+			<Button Grid.Column="2" Width="75" Padding="0,3" Margin="5"
+			        Click="ButtonCancel_Click">
+				Cancel
+			</Button>
+			<Button Grid.Column="3" Width="75" Padding="0,3" Margin="5"
+			        Click="ButtonOk_Click">
+				OK
+			</Button>
+		</Grid>
+	</Grid>
+</Window>

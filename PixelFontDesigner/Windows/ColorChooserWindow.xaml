@@ -1,0 +1,31 @@
+﻿<Window x:Class="JonathanRuisi.PixelFontDesigner.Windows.ColorChooserWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:wpfControlLibrary="clr-namespace:JonathanRuisi.WpfControlLibrary;assembly=WpfControlLibrary"
+        Title="Color Chooser" Height="375" Width="410" SnapsToDevicePixels="True"
+        ResizeMode="NoResize" WindowStartupLocation="CenterOwner" Topmost="True"
+        WindowStyle="ToolWindow" ShowInTaskbar="False" Loaded="Window_Loaded">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="*" />
+			<RowDefinition Height="Auto" />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="*" />
+			<ColumnDefinition Width="Auto" />
+			<ColumnDefinition Width="Auto" />
+		</Grid.ColumnDefinitions>
+
+		<wpfControlLibrary:ColorSetCreator Name="ColorChooser" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"
+		                                   SnapsToDevicePixels="True"
+		                                   IsColorChooserOnly="True" />
+
+		<Button Name="ButtonOk" Grid.Row="1" Grid.Column="2" Width="50" Margin="3" IsDefault="True" Click="ButtonOk_Click">OK</Button>
+		<Button Name="ButtonCancel" Grid.Row="1" Grid.Column="1" Width="50" Margin="3" IsCancel="True"
+		        Click="ButtonCancel_Click">
+			Cancel
+		</Button>
+	</Grid>
+</Window>
