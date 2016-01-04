@@ -23,6 +23,7 @@
 // ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 #endregion
 
+using JonathanRuisi.UtilityLibrary.Color;
 using JonathanRuisi.UtilityLibrary.Xml;
 
 namespace JonathanRuisi.PixelFontDesigner.ViewModel

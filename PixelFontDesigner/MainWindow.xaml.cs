@@ -33,6 +33,7 @@ using System.Windows.Input;
 
 using JonathanRuisi.PixelFontDesigner.Properties;
 using JonathanRuisi.PixelFontDesigner.ViewModel;
+using JonathanRuisi.UtilityLibrary.Color;
 using JonathanRuisi.UtilityLibrary.IO;
 using JonathanRuisi.WpfControlLibrary;
 
