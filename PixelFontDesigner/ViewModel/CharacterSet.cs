@@ -40,7 +40,7 @@ namespace JonathanRuisi.PixelFontDesigner.ViewModel
 		#endregion
 
 		#region Properties
-		public override string NodeName { get { return "CharacterSet"; } }
+		public override string NodeName => "CharacterSet";
 		public string SetName { get { return _setName; } set { SetProperty(ref _setName, value); } }
 		public ColorSpace MainColor { get { return _mainColor; } set { SetProperty(ref _mainColor, value); } }
 
@@ -50,10 +50,7 @@ namespace JonathanRuisi.PixelFontDesigner.ViewModel
 			set { SetProperty(value, () => MainColorBrush, x => MainColor = (ColorSpace) x.Color); }
 		}
 
-		public SolidColorBrush OverlayColorBrush
-		{
-			get { return new SolidColorBrush((Color) MainColor.GetAutoDarkenOrLighten()); }
-		}
+		public SolidColorBrush OverlayColorBrush => new SolidColorBrush((Color) MainColor.GetAutoDarkenOrLighten());
 		#endregion
 
 		#region Constructors

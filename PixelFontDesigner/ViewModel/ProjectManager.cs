@@ -42,7 +42,7 @@ namespace JonathanRuisi.PixelFontDesigner.ViewModel
 		#endregion
 
 		#region Properties
-		public override string NodeName { get { return "Project"; } }
+		public override string NodeName => "Project";
 		public string ProjectName { get { return _projectName; } set { SetProperty(ref _projectName, value); } }
 		public int CharacterWidth { get { return _characterWidth; } private set { SetProperty(ref _characterWidth, value); } }
 

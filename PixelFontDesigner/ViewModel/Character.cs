@@ -40,7 +40,7 @@ namespace JonathanRuisi.PixelFontDesigner.ViewModel
 		#endregion
 
 		#region Properties
-		public override string NodeName { get { return "Character"; } }
+		public override string NodeName => "Character";
 		public CharacterSet CharacterSet { get { return _characterSet; } set { SetProperty(ref _characterSet, value); } }
 		public int Number { get { return _number; } set { SetProperty(ref _number, value); } }
 		public char Symbol { get { return _symbol; } set { SetProperty(ref _symbol, value); } }

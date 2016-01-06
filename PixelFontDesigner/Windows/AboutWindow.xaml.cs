@@ -33,14 +33,7 @@ namespace JonathanRuisi.PixelFontDesigner.Windows
 	{
 		private readonly Version _version;
 
-		public string VersionString
-		{
-			get
-			{
-				return String.Format("Version {0}.{1}.{2}.{3}",
-					_version.Major, _version.Minor, _version.Build, _version.Revision);
-			}
-		}
+		public string VersionString => $"Version {_version.Major}.{_version.Minor}.{_version.Build}.{_version.Revision}";
 
 		public AboutWindow()
 		{
@@ -50,7 +43,7 @@ namespace JonathanRuisi.PixelFontDesigner.Windows
 
 		private void Window_Loaded(object sender, RoutedEventArgs e)
 		{
-			TextBlockVersion.Text = String.Format("Version {0}", Assembly.GetExecutingAssembly().GetName().Version);
+			TextBlockVersion.Text = $"Version {Assembly.GetExecutingAssembly().GetName().Version}";
 		}
 	}
 }

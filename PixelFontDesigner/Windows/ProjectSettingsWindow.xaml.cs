@@ -81,7 +81,7 @@ namespace JonathanRuisi.PixelFontDesigner.Windows
 		public ProjectSettingsWindow(CharacterSetManager characterSetManager, ProjectManager projectManager)
 		{
 			if (characterSetManager == null)
-				throw new ArgumentNullException("characterSetManager");
+				throw new ArgumentNullException(nameof(characterSetManager));
 
 			DataContext = this;
 			_isNewProject = projectManager == null;
@@ -111,7 +111,7 @@ namespace JonathanRuisi.PixelFontDesigner.Windows
 		private void Window_Loaded(object sender, RoutedEventArgs e)
 		{
 			ListBoxCharacterSets.ItemsSource = _csManager;
-			Title = _isNewProject ? "New Project" : String.Format("Edit \"{0}\" Settings", Project.ProjectName);
+			Title = _isNewProject ? "New Project" : $"Edit \"{Project.ProjectName}\" Settings";
 
 			// Select all character sets already represented in the project
 			foreach (var characterSet in _originalCharacterSets)

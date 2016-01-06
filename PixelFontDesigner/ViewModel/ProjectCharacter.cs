@@ -39,7 +39,7 @@ namespace JonathanRuisi.PixelFontDesigner.ViewModel
 		#endregion
 
 		#region Properties
-		public override string NodeName { get { return "ProjectCharacter"; } }
+		public override string NodeName => "ProjectCharacter";
 
 		public bool IsIncludedForExport
 		{

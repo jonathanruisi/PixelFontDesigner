@@ -367,11 +367,9 @@ namespace JonathanRuisi.PixelFontDesigner
 		private void UpdateProjectCharacterCount()
 		{
 			StatusBarItemProjectName.Text = Project.ProjectName;
-			StatusBarItemCharacterDimensions.Text = String.Format("{0} X {1}",
-				Project.CharacterWidth, Project.CharacterHeight);
-			StatusBarItemCharacterCount.Text = String.Format("Total Characters: {0} ({1} marked for export)",
-				Project.Count,
-				Project.Count(character => character.IsIncludedForExport));
+			StatusBarItemCharacterDimensions.Text = $"{Project.CharacterWidth} X {Project.CharacterHeight}";
+			StatusBarItemCharacterCount.Text =
+				$"Total Characters: {Project.Count} ({Project.Count(character => character.IsIncludedForExport)} marked for export)";
 		}
 
 		private void CommitCurrentCharacterPixels(ProjectCharacter character)

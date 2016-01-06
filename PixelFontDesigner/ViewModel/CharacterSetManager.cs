@@ -35,7 +35,7 @@ namespace JonathanRuisi.PixelFontDesigner.ViewModel
 		#endregion
 
 		#region Properties
-		public override string NodeName { get { return "CharacterSets"; } }
+		public override string NodeName => "CharacterSets";
 
 		public ColorScheme ColorScheme
 		{

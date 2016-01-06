@@ -50,7 +50,7 @@ namespace JonathanRuisi.PixelFontDesigner.Windows
 		public PreferencesWindow(CharacterSetManager csManager)
 		{
 			if (csManager == null)
-				throw new ArgumentNullException("csManager");
+				throw new ArgumentNullException(nameof(csManager));
 
 			InitializeComponent();
 			DataContext = this;
