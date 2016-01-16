@@ -236,7 +236,7 @@ namespace JonathanRuisi.PixelFontDesigner
 
 		private void FileSave_CanExecute(object sender, CanExecuteRoutedEventArgs e)
 		{
-			e.CanExecute = (Project != null && _projectChanged);
+			e.CanExecute = Project != null && _projectChanged;
 		}
 
 		private void FileSaveAs_CanExecute(object sender, CanExecuteRoutedEventArgs e)

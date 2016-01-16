@@ -157,10 +157,14 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\PixelFontDesigner2.ico" />
+    <None Include="Resources\PixelFontDesigner2.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Logo.png" />
+    <None Include="Resources\Logo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

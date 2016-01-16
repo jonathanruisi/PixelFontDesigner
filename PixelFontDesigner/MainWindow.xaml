@@ -5,9 +5,10 @@
 		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 		xmlns:p="clr-namespace:JonathanRuisi.PixelFontDesigner.Properties"
 		xmlns:wpfControlLibrary="clr-namespace:JonathanRuisi.WpfControlLibrary;assembly=WpfControlLibrary"
-        Title="Pixel Font Designer" Width="1024" MinWidth="1024" Height="800" MinHeight="640"
+		Title="Pixel Font Designer" Width="1024" MinWidth="1024" Height="800" MinHeight="640"
+		Icon="pack://siteoforigin:,,,/Resources/PixelFontDesigner2.ico"
 		SnapsToDevicePixels="True" Topmost="False"
-		Loaded="Window_Loaded" Closing="Window_Closing" KeyDown="Window_KeyDown"><!-- Icon="pack://siteoforigin:,,,/Resources/PixelFontDesigner2.ico" -->
+		Loaded="Window_Loaded" Closing="Window_Closing" KeyDown="Window_KeyDown">
 	<Window.Resources>
 		<Style x:Key="ProjectDataItemContainerStyle" TargetType="ListBoxItem">
 			<Setter Property="FocusVisualStyle" Value="{x:Null}" />
