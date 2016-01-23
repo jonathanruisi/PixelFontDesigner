@@ -130,6 +130,13 @@ namespace JonathanRuisi.PixelFontDesigner.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute(@"<?xml version=""1.0"" encoding=""utf-16""?>
+<ArrayOfString xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
+  <string>RGB [R=128, G=128, B=128]</string>
+  <string>RGB [R=200, G=16, B=16]</string>
+  <string>RGB [R=16, G=200, B=16]</string>
+  <string>RGB [R=16, G=16, B=200]</string>
+</ArrayOfString>")]
         public global::System.Collections.Specialized.StringCollection Preferences_Appearance_CharacterSetColors {
             get {
                 return ((global::System.Collections.Specialized.StringCollection)(this["Preferences_Appearance_CharacterSetColors"]));

@@ -30,7 +30,13 @@
       <Value Profile="(Default)">RGBA [R=0, G=0, B=0, A=48]</Value>
     </Setting>
     <Setting Name="Preferences_Appearance_CharacterSetColors" Type="System.Collections.Specialized.StringCollection" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;RGB [R=128, G=128, B=128]&lt;/string&gt;
+  &lt;string&gt;RGB [R=200, G=16, B=16]&lt;/string&gt;
+  &lt;string&gt;RGB [R=16, G=200, B=16]&lt;/string&gt;
+  &lt;string&gt;RGB [R=16, G=16, B=200]&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
     </Setting>
     <Setting Name="Preferences_Appearance_DescentOverlayColor" Type="System.String" Scope="User">
       <Value Profile="(Default)">RGBA [R=0, G=0, B=0, A=48]</Value>
