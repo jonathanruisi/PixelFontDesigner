@@ -60,6 +60,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Commands.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="PrivateMethods.cs" />
     <Compile Include="ViewModel\Character.cs" />
     <Compile Include="ViewModel\CharacterSet.cs" />
@@ -139,7 +140,9 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Utility\UtilityLibrary\UtilityLibrary.csproj">

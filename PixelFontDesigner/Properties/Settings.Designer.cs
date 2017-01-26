@@ -385,5 +385,17 @@ namespace JonathanRuisi.PixelFontDesigner.Properties {
                 this["Preferences_Export_Miscellaneous_IncludeComments"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Preferences_Export_ArrayDeclaration_IsPacked {
+            get {
+                return ((bool)(this["Preferences_Export_ArrayDeclaration_IsPacked"]));
+            }
+            set {
+                this["Preferences_Export_ArrayDeclaration_IsPacked"] = value;
+            }
+        }
     }
 }

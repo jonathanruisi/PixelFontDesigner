@@ -1,0 +1,288 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Project ProjectName="Example 3x6" CharacterWidth="3" CharacterHeight="6" AO="true" DO="true" BRO="true" BG="true" UG="true" LG="true" BRG="true" EG="false" AH="0" DH="1" UH="5" LH="3" LBW="0" RBW="0">
+  <ProjectCharacter Number="32" Symbol=" " Description="Space">
+    <PixelMap Width="3" Height="6">0,0,0,0|0,0,0,0|0,0,0,0|0,0,0,0|0,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="33" Symbol="!" Description="Exclamation Mark">
+    <PixelMap Width="3" Height="6">0,0,0,0|0,0,0,0|0,0,0,0|0,0,0,0|0,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="34" Symbol="&quot;" Description="Double Quotation Mark">
+    <PixelMap Width="3" Height="6">0,0,0,0|0,0,0,0|0,0,0,0|0,0,0,0|0,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="35" Symbol="#" Description="Number">
+    <PixelMap Width="3" Height="6">0,0,0,0|0,0,0,0|0,0,0,0|0,0,0,0|0,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="36" Symbol="$" Description="Dollar">
+    <PixelMap Width="3" Height="6">0,0,0,0|0,0,0,0|0,0,0,0|0,0,0,0|0,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="37" Symbol="%" Description="Percent">
+    <PixelMap Width="3" Height="6">0,0,0,0|0,0,0,0|0,0,0,0|0,0,0,0|0,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="38" Symbol="&amp;" Description="Ampersand">
+    <PixelMap Width="3" Height="6">0,0,0,0|0,0,0,0|0,0,0,0|0,0,0,0|0,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="39" Symbol="'" Description="Single Quote">
+    <PixelMap Width="3" Height="6">0,0,0,0|0,0,0,0|0,0,0,0|0,0,0,0|0,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="40" Symbol="(" Description="Open Parenthesis">
+    <PixelMap Width="3" Height="6">2,0,0,0|1,0,0,0|1,0,0,0|1,0,0,0|2,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="41" Symbol=")" Description="Closed Parenthesis">
+    <PixelMap Width="3" Height="6">2,0,0,0|4,0,0,0|4,0,0,0|4,0,0,0|2,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="42" Symbol="*" Description="Asterisk">
+    <PixelMap Width="3" Height="6">5,0,0,0|2,0,0,0|7,0,0,0|2,0,0,0|5,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="43" Symbol="+" Description="Plus">
+    <PixelMap Width="3" Height="6">0,0,0,0|2,0,0,0|7,0,0,0|2,0,0,0|0,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="44" Symbol="," Description="Comma">
+    <PixelMap Width="3" Height="6">0,0,0,0|0,0,0,0|0,0,0,0|0,0,0,0|2,0,0,0|1,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="45" Symbol="-" Description="Hyphen (Minus)">
+    <PixelMap Width="3" Height="6">0,0,0,0|0,0,0,0|7,0,0,0|0,0,0,0|0,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="46" Symbol="." Description="Period">
+    <PixelMap Width="3" Height="6">0,0,0,0|0,0,0,0|0,0,0,0|0,0,0,0|2,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="47" Symbol="/" Description="Forward Slash (Divide)">
+    <PixelMap Width="3" Height="6">4,0,0,0|2,0,0,0|2,0,0,0|2,0,0,0|1,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="48" Symbol="0" Description="Zero">
+    <PixelMap Width="3" Height="6">6,0,0,0|5,0,0,0|5,0,0,0|5,0,0,0|3,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="49" Symbol="1" Description="One">
+    <PixelMap Width="3" Height="6">2,0,0,0|3,0,0,0|2,0,0,0|2,0,0,0|7,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="50" Symbol="2" Description="Two">
+    <PixelMap Width="3" Height="6">3,0,0,0|4,0,0,0|2,0,0,0|1,0,0,0|7,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="51" Symbol="3" Description="Three">
+    <PixelMap Width="3" Height="6">3,0,0,0|4,0,0,0|2,0,0,0|4,0,0,0|3,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="52" Symbol="4" Description="Four">
+    <PixelMap Width="3" Height="6">4,0,0,0|5,0,0,0|7,0,0,0|4,0,0,0|4,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="53" Symbol="5" Description="Five">
+    <PixelMap Width="3" Height="6">7,0,0,0|1,0,0,0|7,0,0,0|4,0,0,0|7,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="54" Symbol="6" Description="Six">
+    <PixelMap Width="3" Height="6">6,0,0,0|1,0,0,0|3,0,0,0|5,0,0,0|2,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="55" Symbol="7" Description="Seven">
+    <PixelMap Width="3" Height="6">7,0,0,0|4,0,0,0|4,0,0,0|2,0,0,0|2,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="56" Symbol="8" Description="Eight">
+    <PixelMap Width="3" Height="6">2,0,0,0|5,0,0,0|2,0,0,0|5,0,0,0|2,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="57" Symbol="9" Description="Nine">
+    <PixelMap Width="3" Height="6">2,0,0,0|5,0,0,0|6,0,0,0|4,0,0,0|2,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="58" Symbol=":" Description="Colon">
+    <PixelMap Width="3" Height="6">0,0,0,0|0,0,0,0|2,0,0,0|0,0,0,0|2,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="59" Symbol=";" Description="Semicolon">
+    <PixelMap Width="3" Height="6">0,0,0,0|0,0,0,0|2,0,0,0|0,0,0,0|2,0,0,0|1,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="60" Symbol="&lt;" Description="Open Angle Bracket (Less Than)">
+    <PixelMap Width="3" Height="6">4,0,0,0|2,0,0,0|1,0,0,0|2,0,0,0|4,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="61" Symbol="=" Description="Equals">
+    <PixelMap Width="3" Height="6">0,0,0,0|7,0,0,0|0,0,0,0|7,0,0,0|0,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="62" Symbol="&gt;" Description="Closed Angle Bracket (Greater Than)">
+    <PixelMap Width="3" Height="6">1,0,0,0|2,0,0,0|4,0,0,0|2,0,0,0|1,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="63" Symbol="?" Description="Question Mark">
+    <PixelMap Width="3" Height="6">3,0,0,0|4,0,0,0|2,0,0,0|0,0,0,0|2,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="64" Symbol="@" Description="At">
+    <PixelMap Width="3" Height="6">7,0,0,0|5,0,0,0|5,0,0,0|1,0,0,0|7,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="65" Symbol="A" Description="Uppercase A">
+    <PixelMap Width="3" Height="6">2,0,0,0|5,0,0,0|7,0,0,0|5,0,0,0|5,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="66" Symbol="B" Description="Uppercase B">
+    <PixelMap Width="3" Height="6">3,0,0,0|5,0,0,0|3,0,0,0|5,0,0,0|3,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="67" Symbol="C" Description="Uppercase C">
+    <PixelMap Width="3" Height="6">6,0,0,0|1,0,0,0|1,0,0,0|1,0,0,0|6,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="68" Symbol="D" Description="Uppercase D">
+    <PixelMap Width="3" Height="6">3,0,0,0|5,0,0,0|5,0,0,0|5,0,0,0|3,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="69" Symbol="E" Description="Uppercase E">
+    <PixelMap Width="3" Height="6">7,0,0,0|1,0,0,0|3,0,0,0|1,0,0,0|7,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="70" Symbol="F" Description="Uppercase F">
+    <PixelMap Width="3" Height="6">7,0,0,0|1,0,0,0|3,0,0,0|1,0,0,0|1,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="71" Symbol="G" Description="Uppercase G">
+    <PixelMap Width="3" Height="6">6,0,0,0|1,0,0,0|5,0,0,0|5,0,0,0|6,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="72" Symbol="H" Description="Uppercase H">
+    <PixelMap Width="3" Height="6">5,0,0,0|5,0,0,0|7,0,0,0|5,0,0,0|5,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="73" Symbol="I" Description="Uppercase I">
+    <PixelMap Width="3" Height="6">7,0,0,0|2,0,0,0|2,0,0,0|2,0,0,0|7,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="74" Symbol="J" Description="Uppercase J">
+    <PixelMap Width="3" Height="6">4,0,0,0|4,0,0,0|4,0,0,0|5,0,0,0|2,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="75" Symbol="K" Description="Uppercase K">
+    <PixelMap Width="3" Height="6">5,0,0,0|5,0,0,0|3,0,0,0|5,0,0,0|5,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="76" Symbol="L" Description="Uppercase L">
+    <PixelMap Width="3" Height="6">1,0,0,0|1,0,0,0|1,0,0,0|1,0,0,0|7,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="77" Symbol="M" Description="Uppercase M">
+    <PixelMap Width="3" Height="6">5,0,0,0|7,0,0,0|7,0,0,0|5,0,0,0|5,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="78" Symbol="N" Description="Uppercase N">
+    <PixelMap Width="3" Height="6">5,0,0,0|7,0,0,0|5,0,0,0|5,0,0,0|5,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="79" Symbol="O" Description="Uppercase O">
+    <PixelMap Width="3" Height="6">2,0,0,0|5,0,0,0|5,0,0,0|5,0,0,0|2,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="80" Symbol="P" Description="Uppercase P">
+    <PixelMap Width="3" Height="6">3,0,0,0|5,0,0,0|3,0,0,0|1,0,0,0|1,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="81" Symbol="Q" Description="Uppercase Q">
+    <PixelMap Width="3" Height="6">2,0,0,0|5,0,0,0|5,0,0,0|7,0,0,0|6,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="82" Symbol="R" Description="Uppercase R">
+    <PixelMap Width="3" Height="6">3,0,0,0|5,0,0,0|3,0,0,0|5,0,0,0|5,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="83" Symbol="S" Description="Uppercase S">
+    <PixelMap Width="3" Height="6">6,0,0,0|1,0,0,0|7,0,0,0|4,0,0,0|3,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="84" Symbol="T" Description="Uppercase T">
+    <PixelMap Width="3" Height="6">7,0,0,0|2,0,0,0|2,0,0,0|2,0,0,0|2,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="85" Symbol="U" Description="Uppercase U">
+    <PixelMap Width="3" Height="6">5,0,0,0|5,0,0,0|5,0,0,0|5,0,0,0|7,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="86" Symbol="V" Description="Uppercase V">
+    <PixelMap Width="3" Height="6">5,0,0,0|5,0,0,0|5,0,0,0|5,0,0,0|2,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="87" Symbol="W" Description="Uppercase W">
+    <PixelMap Width="3" Height="6">5,0,0,0|5,0,0,0|7,0,0,0|7,0,0,0|5,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="88" Symbol="X" Description="Uppercase X">
+    <PixelMap Width="3" Height="6">5,0,0,0|5,0,0,0|2,0,0,0|5,0,0,0|5,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="89" Symbol="Y" Description="Uppercase Y">
+    <PixelMap Width="3" Height="6">5,0,0,0|5,0,0,0|2,0,0,0|2,0,0,0|2,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="90" Symbol="Z" Description="Uppercase Z">
+    <PixelMap Width="3" Height="6">7,0,0,0|4,0,0,0|2,0,0,0|1,0,0,0|7,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="91" Symbol="[" Description="Open Bracket">
+    <PixelMap Width="3" Height="6">3,0,0,0|1,0,0,0|1,0,0,0|1,0,0,0|3,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="92" Symbol="\" Description="Backslash">
+    <PixelMap Width="3" Height="6">1,0,0,0|2,0,0,0|2,0,0,0|2,0,0,0|4,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="93" Symbol="]" Description="Closed Bracket">
+    <PixelMap Width="3" Height="6">6,0,0,0|4,0,0,0|4,0,0,0|4,0,0,0|6,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="94" Symbol="^" Description="Caret">
+    <PixelMap Width="3" Height="6">2,0,0,0|5,0,0,0|0,0,0,0|0,0,0,0|0,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="95" Symbol="_" Description="Underscore">
+    <PixelMap Width="3" Height="6">0,0,0,0|0,0,0,0|0,0,0,0|0,0,0,0|0,0,0,0|7,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="96" Symbol="`" Description="Grave">
+    <PixelMap Width="3" Height="6">1,0,0,0|2,0,0,0|0,0,0,0|0,0,0,0|0,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="97" Symbol="a" Description="Lowercase A">
+    <PixelMap Width="3" Height="6">0,0,0,0|0,0,0,0|6,0,0,0|5,0,0,0|7,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="98" Symbol="b" Description="Lowercase B">
+    <PixelMap Width="3" Height="6">1,0,0,0|1,0,0,0|3,0,0,0|5,0,0,0|3,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="99" Symbol="c" Description="Lowercase C">
+    <PixelMap Width="3" Height="6">0,0,0,0|0,0,0,0|6,0,0,0|1,0,0,0|6,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="100" Symbol="d" Description="Lowercase D">
+    <PixelMap Width="3" Height="6">4,0,0,0|4,0,0,0|6,0,0,0|5,0,0,0|6,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="101" Symbol="e" Description="Lowercase E">
+    <PixelMap Width="3" Height="6">0,0,0,0|0,0,0,0|7,0,0,0|3,0,0,0|6,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="102" Symbol="f" Description="Lowercase F">
+    <PixelMap Width="3" Height="6">4,0,0,0|2,0,0,0|7,0,0,0|2,0,0,0|2,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="103" Symbol="g" Description="Lowercase G">
+    <PixelMap Width="3" Height="6">0,0,0,0|0,0,0,0|7,0,0,0|5,0,0,0|4,0,0,0|7,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="104" Symbol="h" Description="Lowercase H">
+    <PixelMap Width="3" Height="6">1,0,0,0|1,0,0,0|3,0,0,0|5,0,0,0|5,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="105" Symbol="i" Description="Lowercase I">
+    <PixelMap Width="3" Height="6">2,0,0,0|0,0,0,0|2,0,0,0|2,0,0,0|2,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="106" Symbol="j" Description="Lowercase J">
+    <PixelMap Width="3" Height="6">2,0,0,0|0,0,0,0|2,0,0,0|2,0,0,0|2,0,0,0|3,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="107" Symbol="k" Description="Lowercase K">
+    <PixelMap Width="3" Height="6">1,0,0,0|1,0,0,0|5,0,0,0|3,0,0,0|5,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="108" Symbol="l" Description="Lowercase L">
+    <PixelMap Width="3" Height="6">2,0,0,0|2,0,0,0|2,0,0,0|2,0,0,0|2,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="109" Symbol="m" Description="Lowercase M">
+    <PixelMap Width="3" Height="6">0,0,0,0|0,0,0,0|7,0,0,0|7,0,0,0|5,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="110" Symbol="n" Description="Lowercase N">
+    <PixelMap Width="3" Height="6">0,0,0,0|0,0,0,0|3,0,0,0|5,0,0,0|5,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="111" Symbol="o" Description="Lowercase O">
+    <PixelMap Width="3" Height="6">0,0,0,0|0,0,0,0|2,0,0,0|5,0,0,0|2,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="112" Symbol="p" Description="Lowercase P">
+    <PixelMap Width="3" Height="6">0,0,0,0|0,0,0,0|3,0,0,0|5,0,0,0|3,0,0,0|1,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="113" Symbol="q" Description="Lowercase Q">
+    <PixelMap Width="3" Height="6">0,0,0,0|0,0,0,0|6,0,0,0|5,0,0,0|6,0,0,0|4,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="114" Symbol="r" Description="Lowercase R">
+    <PixelMap Width="3" Height="6">0,0,0,0|0,0,0,0|3,0,0,0|1,0,0,0|1,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="115" Symbol="s" Description="Lowercase S">
+    <PixelMap Width="3" Height="6">0,0,0,0|0,0,0,0|6,0,0,0|2,0,0,0|3,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="116" Symbol="t" Description="Lowercase T">
+    <PixelMap Width="3" Height="6">0,0,0,0|2,0,0,0|7,0,0,0|2,0,0,0|6,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="117" Symbol="u" Description="Lowercase U">
+    <PixelMap Width="3" Height="6">0,0,0,0|0,0,0,0|5,0,0,0|5,0,0,0|7,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="118" Symbol="v" Description="Lowercase V">
+    <PixelMap Width="3" Height="6">0,0,0,0|0,0,0,0|5,0,0,0|5,0,0,0|2,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="119" Symbol="w" Description="Lowercase W">
+    <PixelMap Width="3" Height="6">0,0,0,0|0,0,0,0|5,0,0,0|7,0,0,0|7,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="120" Symbol="x" Description="Lowercase X">
+    <PixelMap Width="3" Height="6">0,0,0,0|0,0,0,0|5,0,0,0|2,0,0,0|5,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="121" Symbol="y" Description="Lowercase Y">
+    <PixelMap Width="3" Height="6">0,0,0,0|0,0,0,0|5,0,0,0|5,0,0,0|2,0,0,0|1,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="122" Symbol="z" Description="Lowercase Z">
+    <PixelMap Width="3" Height="6">0,0,0,0|0,0,0,0|3,0,0,0|2,0,0,0|6,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="123" Symbol="{" Description="Open Curly Brace">
+    <PixelMap Width="3" Height="6">6,0,0,0|2,0,0,0|3,0,0,0|2,0,0,0|6,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="124" Symbol="|" Description="Vertical Bar">
+    <PixelMap Width="3" Height="6">2,0,0,0|2,0,0,0|2,0,0,0|2,0,0,0|2,0,0,0|2,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="125" Symbol="}" Description="Closed Curly Brace">
+    <PixelMap Width="3" Height="6">3,0,0,0|2,0,0,0|6,0,0,0|2,0,0,0|3,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+  <ProjectCharacter Number="126" Symbol="~" Description="Tilde">
+    <PixelMap Width="3" Height="6">6,0,0,0|3,0,0,0|0,0,0,0|0,0,0,0|0,0,0,0|0,0,0,0</PixelMap>
+  </ProjectCharacter>
+</Project>

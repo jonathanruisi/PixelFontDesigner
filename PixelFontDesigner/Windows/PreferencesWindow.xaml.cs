@@ -159,6 +159,23 @@ namespace JonathanRuisi.PixelFontDesigner.Windows
 			Close();
 			e.Handled = true;
 		}
+
+		private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
+		{
+			if (e.AddedItems.Contains(TabItemCharacterDatabase))
+			{
+				MinWidth = 400;
+				Width = 400;
+				ResizeMode = ResizeMode.CanResize;
+			}
+			else if (e.RemovedItems.Contains(TabItemCharacterDatabase))
+			{
+				MinWidth = 800;
+				Width = MinWidth;
+				Height = MinHeight;
+				ResizeMode = ResizeMode.NoResize;
+			}
+		}
 		#endregion
 
 		#region Event Handlers (Appearance)

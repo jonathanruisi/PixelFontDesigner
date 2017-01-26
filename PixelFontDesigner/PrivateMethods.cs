@@ -164,29 +164,34 @@ namespace JonathanRuisi.PixelFontDesigner
 				arrayName.Append(formatString.Substring(startIndex, formatString.Length - startIndex));
 
 			// Calculate array dimensions
-			var rowElementCount =
-				Math.Ceiling((decimal) Project.CharacterWidth/Settings.Default.Preferences_Export_ArrayDeclaration_TypeSize);
-			var columnElementCount =
-				Math.Ceiling((decimal) Project.CharacterHeight/Settings.Default.Preferences_Export_ArrayDeclaration_TypeSize);
+			var bytesPerItem = Settings.Default.Preferences_Export_ArrayDeclaration_Interpretation == RowOrColumn.Row
+								   ? (int)Math.Ceiling((decimal)Project.CharacterHeight / 8)
+								   : (int)Math.Ceiling((decimal)Project.CharacterWidth / 8);
+
+			// Force IsPacked=false if multiple array elements are needed to represent one row/column
+			if (bytesPerItem * 8 >= Settings.Default.Preferences_Export_ArrayDeclaration_TypeSize)
+				Settings.Default.Preferences_Export_ArrayDeclaration_IsPacked = false;
+
+			var itemsPerElement = Settings.Default.Preferences_Export_ArrayDeclaration_IsPacked
+									  ? Settings.Default.Preferences_Export_ArrayDeclaration_TypeSize / (bytesPerItem * 8)
+									  : 1;
 			var majorDimension = Settings.Default.Preferences_Export_ArrayDeclaration_Interpretation == RowOrColumn.Row
-				                     ? Project.CharacterHeight
-				                     : Project.CharacterWidth;
-			var minorDimension = Settings.Default.Preferences_Export_ArrayDeclaration_Interpretation == RowOrColumn.Row
-				                     ? rowElementCount
-				                     : columnElementCount;
+									 ? (int)Math.Ceiling((decimal)Project.CharacterHeight / itemsPerElement)
+									 : (int)Math.Ceiling((decimal)Project.CharacterWidth / itemsPerElement);
+			var minorDimension = (int)Math.Ceiling((decimal)(bytesPerItem * itemsPerElement * 8)
+									/ Settings.Default.Preferences_Export_ArrayDeclaration_TypeSize);
 
 			// Query characters marked for export
-			var characters = (from character in Project
-			                  where character.IsIncludedForExport
-			                  select character).ToList();
+			var characters = (from character in Project where character.IsIncludedForExport select character).ToList();
 
 			using (var writer = new StreamWriter(fileName, false))
 			{
 				// Write array declaration
-				writer.WriteLine("{0} {1} {2}[][{3}][{4}] =",
-					Settings.Default.Preferences_Export_ArrayDeclaration_Keywords,
-					Settings.Default.Preferences_Export_ArrayDeclaration_Type,
-					arrayName, majorDimension, minorDimension);
+				writer.Write("{0} {1} {2}[{3}][{4}]", Settings.Default.Preferences_Export_ArrayDeclaration_Keywords,
+					Settings.Default.Preferences_Export_ArrayDeclaration_Type, arrayName, characters.Count, majorDimension);
+				if (minorDimension > 1)
+					writer.Write("[{0}]", minorDimension);
+				writer.WriteLine(" =");
 
 				// Write opening bracket for the array
 				writer.WriteLine('{');
@@ -199,32 +204,146 @@ namespace JonathanRuisi.PixelFontDesigner
 				for (int i = 0; i < characters.Count; i++)
 				{
 					// Get array data for current character
-					var charData8 = new byte[1, 1];
-					var charData16 = new ushort[1, 1];
-					var charData32 = new uint[1, 1];
-					var charData64 = new ulong[1, 1];
-					switch (Settings.Default.Preferences_Export_ArrayDeclaration_TypeSize)
+					var unpackedCharData = new byte[bytesPerItem * itemsPerElement * majorDimension];
+					var charData8 = new byte[majorDimension, minorDimension];
+					var charData16 = new ushort[majorDimension, minorDimension];
+					var charData32 = new uint[majorDimension, minorDimension];
+					var charData64 = new ulong[majorDimension, minorDimension];
+
+					if (Settings.Default.Preferences_Export_ArrayDeclaration_IsPacked)
 					{
-						case 8:
-							charData8 = characters[i].Pixels.ToArray8(
+						if (bytesPerItem == 1)
+						{
+							var tempData = characters[i].Pixels.ToArray8(
 								Settings.Default.Preferences_Export_ArrayDeclaration_Interpretation,
 								Settings.Default.Preferences_Export_ArrayDeclaration_Endianness);
-							break;
-						case 16:
-							charData16 = characters[i].Pixels.ToArray16(
+							for (var z = 0; z < itemsPerElement * majorDimension && z < tempData.GetLength(0); z++)
+							{
+								unpackedCharData[z] = tempData[z, 0];
+							}
+						}
+						else if (bytesPerItem == 2)
+						{
+							var tempData = characters[i].Pixels.ToArray16(
 								Settings.Default.Preferences_Export_ArrayDeclaration_Interpretation,
 								Settings.Default.Preferences_Export_ArrayDeclaration_Endianness);
-							break;
-						case 32:
-							charData32 = characters[i].Pixels.ToArray32(
+							for (var z = 0; z < itemsPerElement * majorDimension; z++)
+							{
+								Array.Copy(BitConverter.GetBytes(tempData[z, 0]), 0, unpackedCharData, z * 2, bytesPerItem);
+							}
+						}
+						else if (bytesPerItem > 2 && bytesPerItem <= 4)
+						{
+							var tempData = characters[i].Pixels.ToArray32(
 								Settings.Default.Preferences_Export_ArrayDeclaration_Interpretation,
 								Settings.Default.Preferences_Export_ArrayDeclaration_Endianness);
-							break;
-						case 64:
-							charData64 = characters[i].Pixels.ToArray64(
+							for (var z = 0; z < itemsPerElement * majorDimension; z++)
+							{
+								Array.Copy(BitConverter.GetBytes(tempData[z, 0]), 0, unpackedCharData, z * 4, bytesPerItem);
+							}
+						}
+						else
+						{
+							var tempData = characters[i].Pixels.ToArray64(
 								Settings.Default.Preferences_Export_ArrayDeclaration_Interpretation,
 								Settings.Default.Preferences_Export_ArrayDeclaration_Endianness);
-							break;
+							for (var z = 0; z < itemsPerElement * majorDimension; z++)
+							{
+								Array.Copy(BitConverter.GetBytes(tempData[z, 0]), 0, unpackedCharData, z * 8, bytesPerItem);
+							}
+						}
+
+						switch (Settings.Default.Preferences_Export_ArrayDeclaration_TypeSize)
+						{
+							case 8:
+								for (var m = 0; m < majorDimension; m++)
+								{
+									charData8[m, 0] = unpackedCharData[m];
+								}
+								break;
+							case 16:
+								for (int m = 0; m < majorDimension; m++)
+								{
+									charData16[m, 0] = BitConverter.ToUInt16(unpackedCharData, m * 2);
+								}
+								break;
+							case 32:
+								for (int m = 0; m < majorDimension; m++)
+								{
+									if (bytesPerItem == 1)
+									{
+										charData32[m, 0] = BitConverter.ToUInt32(unpackedCharData, m * 4);
+									}
+									else if (bytesPerItem == 2)
+									{
+										charData32[m, 0] = BitConverter.ToUInt16(unpackedCharData, m * 4 + 2);
+										charData32[m, 0] <<= 16;
+										charData32[m, 0] |= BitConverter.ToUInt16(unpackedCharData, m * 4);
+									}
+								}
+								break;
+							case 64:
+								for (int m = 0; m < majorDimension; m++)
+								{
+									if (bytesPerItem == 1)
+									{
+										charData64[m, 0] = BitConverter.ToUInt64(unpackedCharData, m * 8);
+									}
+									else if (bytesPerItem == 2)
+									{
+										charData64[m, 0] = BitConverter.ToUInt16(unpackedCharData, m * 8 + 6);
+										charData64[m, 0] <<= 16;
+										charData64[m, 0] = BitConverter.ToUInt16(unpackedCharData, m * 8 + 4);
+										charData64[m, 0] <<= 16;
+										charData64[m, 0] = BitConverter.ToUInt16(unpackedCharData, m * 8 + 2);
+										charData64[m, 0] <<= 16;
+										charData64[m, 0] = BitConverter.ToUInt16(unpackedCharData, m * 8);
+									}
+									else if (bytesPerItem == 4)
+									{
+										charData64[m, 0] = BitConverter.ToUInt32(unpackedCharData, m * 8 + 4);
+										charData64[m, 0] <<= 32;
+										charData64[m, 0] |= BitConverter.ToUInt32(unpackedCharData, m * 8);
+									}
+								}
+								break;
+						}
+					}
+					else
+					{
+						switch (Settings.Default.Preferences_Export_ArrayDeclaration_TypeSize)
+						{
+							case 8:
+								charData8 = characters[i].Pixels.ToArray8(Settings.Default.Preferences_Export_ArrayDeclaration_Interpretation,
+									Settings.Default.Preferences_Export_ArrayDeclaration_Endianness);
+								break;
+							case 16:
+								charData16 = characters[i].Pixels.ToArray16(
+									Settings.Default.Preferences_Export_ArrayDeclaration_Interpretation,
+									Settings.Default.Preferences_Export_ArrayDeclaration_Endianness);
+								break;
+							case 32:
+								charData32 = characters[i].Pixels.ToArray32(
+									Settings.Default.Preferences_Export_ArrayDeclaration_Interpretation,
+									Settings.Default.Preferences_Export_ArrayDeclaration_Endianness);
+								break;
+							case 64:
+								charData64 = characters[i].Pixels.ToArray64(
+									Settings.Default.Preferences_Export_ArrayDeclaration_Interpretation,
+									Settings.Default.Preferences_Export_ArrayDeclaration_Endianness);
+								break;
+						}
+					}
+
+					// TODO: Implement binary number formatting
+					// Until binary formatting is implemented, alert the user and abort the export process
+					if (Settings.Default.Preferences_Export_ArrayElement_Radix == Radix.Binary)
+					{
+						MessageBox.Show(
+							"Binary number format is not currently supported.\n"
+							+ "Please change this setting in the application preferences.\n" + "The export process will be aborted...",
+							"Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+						return;
 					}
 
 					writer.Write("\t{");
@@ -233,29 +352,82 @@ namespace JonathanRuisi.PixelFontDesigner
 						if (minorDimension > 1) writer.Write('{');
 						for (int k = 0; k < minorDimension; k++)
 						{
+							writer.Write("0x");
 							switch (Settings.Default.Preferences_Export_ArrayDeclaration_TypeSize)
 							{
 								case 8:
-									writer.Write(charData8[j, k].ToString(
-										Settings.Default.Preferences_Export_ArrayElement_Radix == Radix.Hexadecimal
+									if (charData8[j, k] < 0x10U)
+										writer.Write('0');
+									writer.Write(
+										charData8[j, k].ToString(Settings.Default.Preferences_Export_ArrayElement_Radix == Radix.Hexadecimal
 											? "X"
 											: "D"));
 									break;
 								case 16:
-									writer.Write(charData16[j, k].ToString(
-										Settings.Default.Preferences_Export_ArrayElement_Radix == Radix.Hexadecimal
+									if (charData16[j, k] < 0x1000U)
+										writer.Write('0');
+									if (charData16[j, k] < 0x100U)
+										writer.Write('0');
+									if (charData16[j, k] < 0x10U)
+										writer.Write('0');
+									writer.Write(
+										charData16[j, k].ToString(Settings.Default.Preferences_Export_ArrayElement_Radix == Radix.Hexadecimal
 											? "X"
 											: "D"));
 									break;
 								case 32:
-									writer.Write(charData32[j, k].ToString(
-										Settings.Default.Preferences_Export_ArrayElement_Radix == Radix.Hexadecimal
+									if (charData32[j, k] < 0x10000000U)
+										writer.Write('0');
+									if (charData32[j, k] < 0x1000000U)
+										writer.Write('0');
+									if (charData32[j, k] < 0x100000U)
+										writer.Write('0');
+									if (charData32[j, k] < 0x10000U)
+										writer.Write('0');
+									if (charData32[j, k] < 0x1000U)
+										writer.Write('0');
+									if (charData32[j, k] < 0x100U)
+										writer.Write('0');
+									if (charData32[j, k] < 0x10U)
+										writer.Write('0');
+									writer.Write(
+										charData32[j, k].ToString(Settings.Default.Preferences_Export_ArrayElement_Radix == Radix.Hexadecimal
 											? "X"
 											: "D"));
 									break;
 								case 64:
-									writer.Write(charData64[j, k].ToString(
-										Settings.Default.Preferences_Export_ArrayElement_Radix == Radix.Hexadecimal
+									if (charData64[j, k] < 0x1000000000000000U)
+										writer.Write('0');
+									if (charData64[j, k] < 0x100000000000000U)
+										writer.Write('0');
+									if (charData64[j, k] < 0x10000000000000U)
+										writer.Write('0');
+									if (charData64[j, k] < 0x1000000000000U)
+										writer.Write('0');
+									if (charData64[j, k] < 0x100000000000U)
+										writer.Write('0');
+									if (charData64[j, k] < 0x10000000000U)
+										writer.Write('0');
+									if (charData64[j, k] < 0x1000000000U)
+										writer.Write('0');
+									if (charData64[j, k] < 0x100000000U)
+										writer.Write('0');
+									if (charData64[j, k] < 0x10000000U)
+										writer.Write('0');
+									if (charData64[j, k] < 0x1000000U)
+										writer.Write('0');
+									if (charData64[j, k] < 0x100000U)
+										writer.Write('0');
+									if (charData64[j, k] < 0x10000U)
+										writer.Write('0');
+									if (charData64[j, k] < 0x1000U)
+										writer.Write('0');
+									if (charData64[j, k] < 0x100U)
+										writer.Write('0');
+									if (charData64[j, k] < 0x10U)
+										writer.Write('0');
+									writer.Write(
+										charData64[j, k].ToString(Settings.Default.Preferences_Export_ArrayElement_Radix == Radix.Hexadecimal
 											? "X"
 											: "D"));
 									break;
@@ -271,16 +443,19 @@ namespace JonathanRuisi.PixelFontDesigner
 					// Write comment (if specified in settings)
 					if (Settings.Default.Preferences_Export_Miscellaneous_IncludeComments)
 					{
-						writer.Write("},");
-						writer.WriteLine("\t// [{0}] {1} ({2})",
-							characters[i].Number, characters[i].Symbol, characters[i].Description);
+						if (i == characters.Count - 1) writer.Write('}');
+						else writer.Write("},");
+						writer.WriteLine("\t// [{0}] {1} ({2})", characters[i].Number, characters[i].Symbol, characters[i].Description);
 					}
 					else
-						writer.WriteLine("},");
+					{
+						if (i == characters.Count - 1) writer.WriteLine('}');
+						else writer.WriteLine("},");
+					}
 				}
 
 				// Write closing bracket for the array
-				writer.WriteLine('}');
+				writer.Write("};");
 			}
 		}
 
