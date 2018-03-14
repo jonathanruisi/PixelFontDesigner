@@ -30,11 +30,12 @@ using System.Text;
 using System.Windows;
 using System.Windows.Data;
 
+using JLR.Utility.NET;
+using JLR.Utility.WPF.Elements;
+
 using JonathanRuisi.PixelFontDesigner.Properties;
 using JonathanRuisi.PixelFontDesigner.ViewModel;
 using JonathanRuisi.PixelFontDesigner.Windows;
-using JonathanRuisi.UtilityLibrary;
-using JonathanRuisi.WpfControlLibrary;
 
 using Microsoft.Win32;
 

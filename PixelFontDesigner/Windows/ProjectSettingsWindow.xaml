@@ -1,26 +1,26 @@
 ﻿<Window x:Class="JonathanRuisi.PixelFontDesigner.Windows.ProjectSettingsWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:wpfControlLibrary="clr-namespace:JonathanRuisi.WpfControlLibrary;assembly=WpfControlLibrary"
-        Title="Project Settings" Width="500" Height="800" SnapsToDevicePixels="True"
-        ResizeMode="NoResize" WindowStartupLocation="CenterOwner"
-        WindowStyle="ToolWindow" ShowInTaskbar="False" Topmost="True" Loaded="Window_Loaded">
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		xmlns:wpfControlLibrary="clr-namespace:JLR.Utility.WPF.Elements;assembly=JLR.Utility.WPF"
+		Title="Project Settings" Width="500" Height="800" SnapsToDevicePixels="True"
+		ResizeMode="NoResize" WindowStartupLocation="CenterOwner"
+		WindowStyle="ToolWindow" ShowInTaskbar="False" Topmost="True" Loaded="Window_Loaded">
 
 	<Grid>
 		<Grid.RowDefinitions>
-			<RowDefinition Height="Auto" />
-			<RowDefinition Height="Auto" />
-			<RowDefinition Height="Auto" />
-			<RowDefinition Height="*" />
-			<RowDefinition Height="Auto" />
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="Auto"/>
 		</Grid.RowDefinitions>
 
 		<!-- Project Name -->
 		<GroupBox Grid.Row="0" Header="Project Name" Margin="5,5,5,0">
 			<TextBox Name="TextBoxProjectName" HorizontalContentAlignment="Left" Margin="0,3,0,0"
-			         Style="{StaticResource TextBoxValidationStyle}" />
+					 Style="{StaticResource TextBoxValidationStyle}"/>
 		</GroupBox>
 
 		<!-- Character Dimensions -->
@@ -28,13 +28,13 @@
 			<DockPanel Margin="3,3,0,0" LastChildFill="False">
 				<TextBlock DockPanel.Dock="Left" VerticalAlignment="Center">Width:</TextBlock>
 				<TextBox Name="TextBoxCharacterWidth" DockPanel.Dock="Left" Width="25" Margin="3,0,0,0"
-				         VerticalAlignment="Center" HorizontalContentAlignment="Center"
-				         Style="{StaticResource TextBoxValidationStyle}" />
+						 VerticalAlignment="Center" HorizontalContentAlignment="Center"
+						 Style="{StaticResource TextBoxValidationStyle}"/>
 
 				<TextBlock DockPanel.Dock="Left" VerticalAlignment="Center" Margin="10,0,0,0">Height:</TextBlock>
 				<TextBox Name="TextBoxCharacterHeight" DockPanel.Dock="Left" Width="25" Margin="3,0,0,0"
-				         VerticalAlignment="Center" HorizontalContentAlignment="Center"
-				         Style="{StaticResource TextBoxValidationStyle}" />
+						 VerticalAlignment="Center" HorizontalContentAlignment="Center"
+						 Style="{StaticResource TextBoxValidationStyle}"/>
 			</DockPanel>
 		</GroupBox>
 
@@ -42,148 +42,148 @@
 		<GroupBox Grid.Row="2" Header="Character Metrics" Margin="5,5,5,0">
 			<Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 				<Grid.RowDefinitions>
-					<RowDefinition Height="Auto" />
-					<RowDefinition Height="*" />
-					<RowDefinition Height="Auto" />
-					<RowDefinition Height="*" />
-					<RowDefinition Height="Auto" />
-					<RowDefinition Height="*" />
-					<RowDefinition Height="Auto" />
-					<RowDefinition Height="*" />
-					<RowDefinition Height="Auto" />
-					<RowDefinition Height="*" />
-					<RowDefinition Height="Auto" />
-					<RowDefinition Height="*" />
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="*"/>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="*"/>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="*"/>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="*"/>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="*"/>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="*"/>
 				</Grid.RowDefinitions>
 				<Grid.ColumnDefinitions>
-					<ColumnDefinition Width="Auto" />
-					<ColumnDefinition Width="30" />
-					<ColumnDefinition Width="Auto" />
-					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="Auto"/>
+					<ColumnDefinition Width="30"/>
+					<ColumnDefinition Width="Auto"/>
+					<ColumnDefinition Width="*"/>
 				</Grid.ColumnDefinitions>
 
 				<Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" FontSize="12" Padding="0" Margin="0"
-				       HorizontalAlignment="Center" VerticalAlignment="Center">
+					   HorizontalAlignment="Center" VerticalAlignment="Center">
 					Ascent
 				</Label>
 				<Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" FontSize="12" Padding="0" Margin="0"
-				       HorizontalAlignment="Center" VerticalAlignment="Center">
+					   HorizontalAlignment="Center" VerticalAlignment="Center">
 					Descent
 				</Label>
 				<Label Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" FontSize="12" Padding="0" Margin="0"
-				       HorizontalAlignment="Center" VerticalAlignment="Center">
+					   HorizontalAlignment="Center" VerticalAlignment="Center">
 					Uppercase
 				</Label>
 				<Label Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="3" FontSize="12" Padding="0" Margin="0"
-				       HorizontalAlignment="Center" VerticalAlignment="Center">
+					   HorizontalAlignment="Center" VerticalAlignment="Center">
 					Lowercase
 				</Label>
 				<Label Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="3" FontSize="12" Padding="0" Margin="0"
-				       HorizontalAlignment="Center" VerticalAlignment="Center">
+					   HorizontalAlignment="Center" VerticalAlignment="Center">
 					Left Bearing
 				</Label>
 				<Label Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="3" FontSize="12" Padding="0" Margin="0"
-				       HorizontalAlignment="Center" VerticalAlignment="Center">
+					   HorizontalAlignment="Center" VerticalAlignment="Center">
 					Right Bearing
 				</Label>
 
 				<Button Grid.Row="1" Grid.Column="0" Margin="3,2"
-				        HorizontalAlignment="Center" VerticalAlignment="Top"
-				        Style="{StaticResource CommonButtonStyle}" BorderThickness="2" Padding="2"
-				        ContentTemplate="{StaticResource RemoveButton2DataTemplate}"
-				        Click="ButtonAscentMinus_Click" />
+						HorizontalAlignment="Center" VerticalAlignment="Top"
+						Style="{StaticResource CommonButtonStyle}" BorderThickness="2" Padding="2"
+						ContentTemplate="{StaticResource RemoveButton2DataTemplate}"
+						Click="ButtonAscentMinus_Click"/>
 				<Button Grid.Row="1" Grid.Column="2" Margin="3,2"
-				        HorizontalAlignment="Center" VerticalAlignment="Top"
-				        Style="{StaticResource CommonButtonStyle}" BorderThickness="2" Padding="2"
-				        ContentTemplate="{StaticResource AddButtonDataTemplate}"
-				        Click="ButtonAscentPlus_Click" />
+						HorizontalAlignment="Center" VerticalAlignment="Top"
+						Style="{StaticResource CommonButtonStyle}" BorderThickness="2" Padding="2"
+						ContentTemplate="{StaticResource AddButtonDataTemplate}"
+						Click="ButtonAscentPlus_Click"/>
 				<Button Grid.Row="3" Grid.Column="0" Margin="3,2"
-				        HorizontalAlignment="Center" VerticalAlignment="Top"
-				        Style="{StaticResource CommonButtonStyle}" BorderThickness="2" Padding="2"
-				        ContentTemplate="{StaticResource RemoveButton2DataTemplate}"
-				        Click="ButtonDescentMinus_Click" />
+						HorizontalAlignment="Center" VerticalAlignment="Top"
+						Style="{StaticResource CommonButtonStyle}" BorderThickness="2" Padding="2"
+						ContentTemplate="{StaticResource RemoveButton2DataTemplate}"
+						Click="ButtonDescentMinus_Click"/>
 				<Button Grid.Row="3" Grid.Column="2" Margin="3,2"
-				        HorizontalAlignment="Center" VerticalAlignment="Top"
-				        Style="{StaticResource CommonButtonStyle}" BorderThickness="2" Padding="2"
-				        ContentTemplate="{StaticResource AddButtonDataTemplate}"
-				        Click="ButtonDescentPlus_Click" />
+						HorizontalAlignment="Center" VerticalAlignment="Top"
+						Style="{StaticResource CommonButtonStyle}" BorderThickness="2" Padding="2"
+						ContentTemplate="{StaticResource AddButtonDataTemplate}"
+						Click="ButtonDescentPlus_Click"/>
 				<Button Grid.Row="5" Grid.Column="0" Margin="3,2"
-				        HorizontalAlignment="Center" VerticalAlignment="Top"
-				        Style="{StaticResource CommonButtonStyle}" BorderThickness="2" Padding="2"
-				        ContentTemplate="{StaticResource RemoveButton2DataTemplate}"
-				        Click="ButtonUppercaseMinus_Click" />
+						HorizontalAlignment="Center" VerticalAlignment="Top"
+						Style="{StaticResource CommonButtonStyle}" BorderThickness="2" Padding="2"
+						ContentTemplate="{StaticResource RemoveButton2DataTemplate}"
+						Click="ButtonUppercaseMinus_Click"/>
 				<Button Grid.Row="5" Grid.Column="2" Margin="3,2"
-				        HorizontalAlignment="Center" VerticalAlignment="Top"
-				        Style="{StaticResource CommonButtonStyle}" BorderThickness="2" Padding="2"
-				        ContentTemplate="{StaticResource AddButtonDataTemplate}"
-				        Click="ButtonUppercasePlus_Click" />
+						HorizontalAlignment="Center" VerticalAlignment="Top"
+						Style="{StaticResource CommonButtonStyle}" BorderThickness="2" Padding="2"
+						ContentTemplate="{StaticResource AddButtonDataTemplate}"
+						Click="ButtonUppercasePlus_Click"/>
 				<Button Grid.Row="7" Grid.Column="0" Margin="3,2"
-				        HorizontalAlignment="Center" VerticalAlignment="Top"
-				        Style="{StaticResource CommonButtonStyle}" BorderThickness="2" Padding="2"
-				        ContentTemplate="{StaticResource RemoveButton2DataTemplate}"
-				        Click="ButtonLowercaseMinus_Click" />
+						HorizontalAlignment="Center" VerticalAlignment="Top"
+						Style="{StaticResource CommonButtonStyle}" BorderThickness="2" Padding="2"
+						ContentTemplate="{StaticResource RemoveButton2DataTemplate}"
+						Click="ButtonLowercaseMinus_Click"/>
 				<Button Grid.Row="7" Grid.Column="2" Margin="3,2"
-				        HorizontalAlignment="Center" VerticalAlignment="Top"
-				        Style="{StaticResource CommonButtonStyle}" BorderThickness="2" Padding="2"
-				        ContentTemplate="{StaticResource AddButtonDataTemplate}"
-				        Click="ButtonLowercasePlus_Click" />
+						HorizontalAlignment="Center" VerticalAlignment="Top"
+						Style="{StaticResource CommonButtonStyle}" BorderThickness="2" Padding="2"
+						ContentTemplate="{StaticResource AddButtonDataTemplate}"
+						Click="ButtonLowercasePlus_Click"/>
 				<Button Grid.Row="9" Grid.Column="0" Margin="3,2"
-				        HorizontalAlignment="Center" VerticalAlignment="Top"
-				        Style="{StaticResource CommonButtonStyle}" BorderThickness="2" Padding="2"
-				        ContentTemplate="{StaticResource RemoveButton2DataTemplate}"
-				        Click="ButtonLeftBearingMinus_Click" />
+						HorizontalAlignment="Center" VerticalAlignment="Top"
+						Style="{StaticResource CommonButtonStyle}" BorderThickness="2" Padding="2"
+						ContentTemplate="{StaticResource RemoveButton2DataTemplate}"
+						Click="ButtonLeftBearingMinus_Click"/>
 				<Button Grid.Row="9" Grid.Column="2" Margin="3,2"
-				        HorizontalAlignment="Center" VerticalAlignment="Top"
-				        Style="{StaticResource CommonButtonStyle}" BorderThickness="2" Padding="2"
-				        ContentTemplate="{StaticResource AddButtonDataTemplate}"
-				        Click="ButtonLeftBearingPlus_Click" />
+						HorizontalAlignment="Center" VerticalAlignment="Top"
+						Style="{StaticResource CommonButtonStyle}" BorderThickness="2" Padding="2"
+						ContentTemplate="{StaticResource AddButtonDataTemplate}"
+						Click="ButtonLeftBearingPlus_Click"/>
 				<Button Grid.Row="11" Grid.Column="0" Margin="3,2"
-				        HorizontalAlignment="Center" VerticalAlignment="Top"
-				        Style="{StaticResource CommonButtonStyle}" BorderThickness="2" Padding="2"
-				        ContentTemplate="{StaticResource RemoveButton2DataTemplate}"
-				        Click="ButtonRightBearingMinus_Click" />
+						HorizontalAlignment="Center" VerticalAlignment="Top"
+						Style="{StaticResource CommonButtonStyle}" BorderThickness="2" Padding="2"
+						ContentTemplate="{StaticResource RemoveButton2DataTemplate}"
+						Click="ButtonRightBearingMinus_Click"/>
 				<Button Grid.Row="11" Grid.Column="2" Margin="3,2"
-				        HorizontalAlignment="Center" VerticalAlignment="Top"
-				        Style="{StaticResource CommonButtonStyle}" BorderThickness="2" Padding="2"
-				        ContentTemplate="{StaticResource AddButtonDataTemplate}"
-				        Click="ButtonRightBearingPlus_Click" />
+						HorizontalAlignment="Center" VerticalAlignment="Top"
+						Style="{StaticResource CommonButtonStyle}" BorderThickness="2" Padding="2"
+						ContentTemplate="{StaticResource AddButtonDataTemplate}"
+						Click="ButtonRightBearingPlus_Click"/>
 
 				<TextBlock Name="TextBlockAscent" Grid.Row="1" Grid.Column="1"
-				           HorizontalAlignment="Center" VerticalAlignment="Top"
-				           Margin="0" Padding="0" FontSize="22" FontWeight="Bold">
+						   HorizontalAlignment="Center" VerticalAlignment="Top"
+						   Margin="0" Padding="0" FontSize="22" FontWeight="Bold">
 					0
 				</TextBlock>
 				<TextBlock Name="TextBlockDescent" Grid.Row="3" Grid.Column="1"
-				           HorizontalAlignment="Center" VerticalAlignment="Top"
-				           Margin="0" Padding="0" FontSize="22" FontWeight="Bold">
+						   HorizontalAlignment="Center" VerticalAlignment="Top"
+						   Margin="0" Padding="0" FontSize="22" FontWeight="Bold">
 					0
 				</TextBlock>
 				<TextBlock Name="TextBlockUppercase" Grid.Row="5" Grid.Column="1"
-				           HorizontalAlignment="Center" VerticalAlignment="Top"
-				           Margin="0" Padding="0" FontSize="22" FontWeight="Bold">
+						   HorizontalAlignment="Center" VerticalAlignment="Top"
+						   Margin="0" Padding="0" FontSize="22" FontWeight="Bold">
 					0
 				</TextBlock>
 				<TextBlock Name="TextBlockLowercase" Grid.Row="7" Grid.Column="1"
-				           HorizontalAlignment="Center" VerticalAlignment="Top"
-				           Margin="0" Padding="0" FontSize="22" FontWeight="Bold">
+						   HorizontalAlignment="Center" VerticalAlignment="Top"
+						   Margin="0" Padding="0" FontSize="22" FontWeight="Bold">
 					0
 				</TextBlock>
 				<TextBlock Name="TextBlockLeftBearing" Grid.Row="9" Grid.Column="1"
-				           HorizontalAlignment="Center" VerticalAlignment="Top"
-				           Margin="0" Padding="0" FontSize="22" FontWeight="Bold">
+						   HorizontalAlignment="Center" VerticalAlignment="Top"
+						   Margin="0" Padding="0" FontSize="22" FontWeight="Bold">
 					0
 				</TextBlock>
 				<TextBlock Name="TextBlockRightBearing" Grid.Row="11" Grid.Column="1"
-				           HorizontalAlignment="Center" VerticalAlignment="Top"
-				           Margin="0" Padding="0" FontSize="22" FontWeight="Bold">
+						   HorizontalAlignment="Center" VerticalAlignment="Top"
+						   Margin="0" Padding="0" FontSize="22" FontWeight="Bold">
 					0
 				</TextBlock>
 
 				<Border Grid.Row="0" Grid.RowSpan="12" Grid.Column="3" Margin="3,0,0,0"
-				        HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-				        BorderBrush="Black" BorderThickness="3">
+						HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+						BorderBrush="Black" BorderThickness="3">
 					<wpfControlLibrary:GlyphPixelGrid Name="MarginPixelGrid" SnapsToDevicePixels="True" IsEditable="False"
-					                                  Height="400" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+													  Height="400" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
 				</Border>
 			</Grid>
 		</GroupBox>
@@ -191,9 +191,9 @@
 		<!-- Character Sets -->
 		<GroupBox Grid.Row="3" Header="Included Character Sets" Margin="5,5,5,0">
 			<ListBox Name="ListBoxCharacterSets" Grid.IsSharedSizeScope="True"
-			         HorizontalContentAlignment="Stretch" SelectionMode="Multiple"
-			         ItemContainerStyle="{StaticResource CharacterSetItemContainerStyle}"
-			         SelectionChanged="ListBoxCharacterSets_SelectionChanged" />
+					 HorizontalContentAlignment="Stretch" SelectionMode="Multiple"
+					 ItemContainerStyle="{StaticResource CharacterSetItemContainerStyle}"
+					 SelectionChanged="ListBoxCharacterSets_SelectionChanged"/>
 		</GroupBox>
 
 		<!-- Buttons -->

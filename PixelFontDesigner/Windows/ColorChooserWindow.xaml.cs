@@ -26,7 +26,7 @@
 using System.Collections.ObjectModel;
 using System.Windows;
 
-using JonathanRuisi.UtilityLibrary.Color;
+using JLR.Utility.NET.Color;
 
 namespace JonathanRuisi.PixelFontDesigner.Windows
 {

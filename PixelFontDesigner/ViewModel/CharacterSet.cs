@@ -27,8 +27,9 @@ using System;
 using System.Windows.Media;
 using System.Xml.Linq;
 
-using JonathanRuisi.UtilityLibrary.Color;
-using JonathanRuisi.UtilityLibrary.Xml;
+using JLR.Utility.NET.Color;
+using JLR.Utility.NET.Xml;
+using JLR.Utility.WPF;
 
 namespace JonathanRuisi.PixelFontDesigner.ViewModel
 {
@@ -46,11 +47,12 @@ namespace JonathanRuisi.PixelFontDesigner.ViewModel
 
 		public SolidColorBrush MainColorBrush
 		{
-			get { return new SolidColorBrush((Color) MainColor); }
-			set { SetProperty(value, () => MainColorBrush, x => MainColor = (ColorSpace) x.Color); }
+			get { return new SolidColorBrush(MainColor.ToSystemWindowsMediaColor()); }
+			set { SetProperty(value, () => MainColorBrush, x => MainColor = x.Color.ToColorSpaceRgba()); }
 		}
 
-		public SolidColorBrush OverlayColorBrush => new SolidColorBrush((Color) MainColor.GetAutoDarkenOrLighten());
+		public SolidColorBrush OverlayColorBrush =>
+			new SolidColorBrush(MainColor.GetAutoDarkenOrLighten().ToSystemWindowsMediaColor());
 		#endregion
 
 		#region Constructors

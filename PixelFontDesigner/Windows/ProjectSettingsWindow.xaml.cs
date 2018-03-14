@@ -31,10 +31,11 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 
+using JLR.Utility.NET.Collections;
+using JLR.Utility.WPF.Elements;
+using JLR.Utility.WPF.ValidationRules;
+
 using JonathanRuisi.PixelFontDesigner.ViewModel;
-using JonathanRuisi.UtilityLibrary.Collections;
-using JonathanRuisi.WpfControlLibrary;
-using JonathanRuisi.WpfControlLibrary.ValidationRules;
 
 namespace JonathanRuisi.PixelFontDesigner.Windows
 {

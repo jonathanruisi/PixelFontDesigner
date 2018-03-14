@@ -4,7 +4,7 @@
 		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 		xmlns:p="clr-namespace:JonathanRuisi.PixelFontDesigner.Properties"
-		xmlns:wpfControlLibrary="clr-namespace:JonathanRuisi.WpfControlLibrary;assembly=WpfControlLibrary"
+		xmlns:elements="clr-namespace:JLR.Utility.WPF.Elements;assembly=JLR.Utility.WPF"
 		Title="Pixel Font Designer" Width="1024" MinWidth="1024" Height="800" MinHeight="640"
 		Icon="pack://siteoforigin:,,,/Resources/PixelFontDesigner2.ico"
 		SnapsToDevicePixels="True" Topmost="False"
@@ -431,7 +431,7 @@
 					</DockPanel>
 				</StackPanel>
 
-				<wpfControlLibrary:GlyphPixelGrid Name="MainPixelGrid" DockPanel.Dock="Bottom" SnapsToDevicePixels="True"
+				<elements:GlyphPixelGrid Name="MainPixelGrid" DockPanel.Dock="Bottom" SnapsToDevicePixels="True"
 												  IsEditable="True"
 												  HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
 												  PixelBorderThickness="{Binding Source={x:Static p:Settings.Default},

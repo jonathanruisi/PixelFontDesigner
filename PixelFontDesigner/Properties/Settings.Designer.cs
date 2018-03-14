@@ -12,7 +12,7 @@ namespace JonathanRuisi.PixelFontDesigner.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "14.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.6.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -293,9 +293,9 @@ namespace JonathanRuisi.PixelFontDesigner.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Little")]
-        public global::JonathanRuisi.UtilityLibrary.Endianness Preferences_Export_ArrayDeclaration_Endianness {
+        public global::JLR.Utility.NET.Endianness Preferences_Export_ArrayDeclaration_Endianness {
             get {
-                return ((global::JonathanRuisi.UtilityLibrary.Endianness)(this["Preferences_Export_ArrayDeclaration_Endianness"]));
+                return ((global::JLR.Utility.NET.Endianness)(this["Preferences_Export_ArrayDeclaration_Endianness"]));
             }
             set {
                 this["Preferences_Export_ArrayDeclaration_Endianness"] = value;
@@ -305,9 +305,9 @@ namespace JonathanRuisi.PixelFontDesigner.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Column")]
-        public global::JonathanRuisi.UtilityLibrary.RowOrColumn Preferences_Export_ArrayDeclaration_Interpretation {
+        public global::JLR.Utility.NET.RowOrColumn Preferences_Export_ArrayDeclaration_Interpretation {
             get {
-                return ((global::JonathanRuisi.UtilityLibrary.RowOrColumn)(this["Preferences_Export_ArrayDeclaration_Interpretation"]));
+                return ((global::JLR.Utility.NET.RowOrColumn)(this["Preferences_Export_ArrayDeclaration_Interpretation"]));
             }
             set {
                 this["Preferences_Export_ArrayDeclaration_Interpretation"] = value;
@@ -365,9 +365,9 @@ namespace JonathanRuisi.PixelFontDesigner.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Hexadecimal")]
-        public global::JonathanRuisi.UtilityLibrary.Radix Preferences_Export_ArrayElement_Radix {
+        public global::JLR.Utility.NET.Radix Preferences_Export_ArrayElement_Radix {
             get {
-                return ((global::JonathanRuisi.UtilityLibrary.Radix)(this["Preferences_Export_ArrayElement_Radix"]));
+                return ((global::JLR.Utility.NET.Radix)(this["Preferences_Export_ArrayElement_Radix"]));
             }
             set {
                 this["Preferences_Export_ArrayElement_Radix"] = value;

@@ -32,11 +32,12 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Input;
 
+using JLR.Utility.NET;
+using JLR.Utility.NET.Color;
+using JLR.Utility.WPF;
+
 using JonathanRuisi.PixelFontDesigner.Properties;
 using JonathanRuisi.PixelFontDesigner.ViewModel;
-using JonathanRuisi.UtilityLibrary;
-using JonathanRuisi.UtilityLibrary.Color;
-using JonathanRuisi.WpfControlLibrary;
 
 namespace JonathanRuisi.PixelFontDesigner.Windows
 {
@@ -116,7 +117,7 @@ namespace JonathanRuisi.PixelFontDesigner.Windows
 				}
 			};
 
-			multiBinding = new MultiBinding() {Converter = new BooleanToVisibilityMultiConverter()};
+			multiBinding = new MultiBinding() {Converter = new BoolToVisibilityMultiConverter()};
 			foreach (var bindingPart in bindings)
 			{
 				multiBinding.Bindings.Add(bindingPart);

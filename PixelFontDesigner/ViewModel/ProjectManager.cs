@@ -26,7 +26,7 @@
 using System;
 using System.Xml.Linq;
 
-using JonathanRuisi.UtilityLibrary.Xml;
+using JLR.Utility.NET.Xml;
 
 namespace JonathanRuisi.PixelFontDesigner.ViewModel
 {

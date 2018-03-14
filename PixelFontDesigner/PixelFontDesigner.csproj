@@ -9,11 +9,12 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>JonathanRuisi.PixelFontDesigner</RootNamespace>
     <AssemblyName>PixelFontDesigner</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -145,16 +146,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Utility\UtilityLibrary\UtilityLibrary.csproj">
-      <Project>{fe6a1f22-9efc-4718-9a09-5af2639c3c11}</Project>
-      <Name>UtilityLibrary</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Utility\WpfControlLibrary\WpfControlLibrary.csproj">
-      <Project>{cf456aa0-283d-4a38-8a4e-14ab861daced}</Project>
-      <Name>WpfControlLibrary</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\CharacterSetDatabase.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -169,7 +160,16 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\..\Utility.NET\Utility.NET\Utility.NET.csproj">
+      <Project>{3537c3f4-9d3e-4dcb-a1f4-2c66b5154344}</Project>
+      <Name>Utility.NET</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Utility.NET\Utility.WPF\Utility.WPF.csproj">
+      <Project>{ed2b7c8a-1177-4a36-acf3-9b78900bb25e}</Project>
+      <Name>Utility.WPF</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

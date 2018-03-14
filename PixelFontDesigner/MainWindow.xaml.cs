@@ -31,11 +31,12 @@ using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Input;
 
+using JLR.Utility.NET.Color;
+using JLR.Utility.NET.IO;
+using JLR.Utility.WPF;
+
 using JonathanRuisi.PixelFontDesigner.Properties;
 using JonathanRuisi.PixelFontDesigner.ViewModel;
-using JonathanRuisi.UtilityLibrary.Color;
-using JonathanRuisi.UtilityLibrary.IO;
-using JonathanRuisi.WpfControlLibrary;
 
 namespace JonathanRuisi.PixelFontDesigner
 {

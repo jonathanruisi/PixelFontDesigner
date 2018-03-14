@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:validationRules="clr-namespace:JonathanRuisi.WpfControlLibrary.ValidationRules;assembly=WpfControlLibrary"
+             xmlns:validationRules="clr-namespace:JLR.Utility.WPF.ValidationRules;assembly=JLR.Utility.WPF"
              MinWidth="150" MinHeight="30"
              mc:Ignorable="d" d:DesignHeight="30" d:DesignWidth="200"
              d:DataContext="{Binding RelativeSource={RelativeSource Self}}"
